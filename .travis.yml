@@ -47,7 +47,7 @@ before_install:
 after_success:
   - git log --oneline --decorate > log.txt
   - test $TRAVIS_BRANCH = "master" &&
-    echo -e "dev_alpha" > group.txt
-  - test $TRAVIS_BRANCH = "v0.x.x" &&
     echo -e "alpha" > group.txt
+  - test $TRAVIS_BRANCH = "v0.x.x" &&
+    echo -e "dev_alpha" > group.txt
   - "./gradlew appDistributionUploadRelease"
