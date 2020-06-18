@@ -50,10 +50,10 @@ android {
                 "proguard-rules.pro"
             )
             firebaseAppDistribution {
-                releaseNotesFile = projectDir.absolutePath + "log.txt"
-                groupsFile = projectDir.absolutePath + "group.txt"
+                releaseNotesFile = rootDir.absolutePath + "/log.txt"
+                groupsFile = rootDir.absolutePath + "/group.txt"
                 serviceCredentialsFile =
-                    projectDir.absolutePath + "ru-dzgeorgy-leaf-efa8ee88d103.json"
+                    rootDir.absolutePath + "/ru-dzgeorgy-leaf-efa8ee88d103.json"
             }
         }
         getByName("debug") {
