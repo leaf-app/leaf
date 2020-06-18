@@ -4,6 +4,9 @@ object Dependencies {
         const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
         const val androidGradle = "com.android.tools.build:gradle:${Versions.androidGradle}"
         const val gms = "com.google.gms:google-services:${Versions.gms}"
+        const val grabver = "eu.davidea:grabver:${Versions.grabver}"
+        const val firebaseAppDistr =
+            "com.google.firebase:firebase-appdistribution-gradle:${Versions.firebaseAppDistr}"
     }
 
     object Libs {
@@ -30,7 +33,9 @@ object Dependencies {
         const val core = "1.4.0-alpha01"
         const val espresso = "3.2.0"
         const val firebaseAnalytics = "17.4.3"
+        const val firebaseAppDistr = "2.0.0"
         const val gms = "4.3.3"
+        const val grabver = "2.0.2"
         const val junit = "4.13"
         const val kotlin = "1.3.72"
         const val materialComponents = "1.3.0-alpha01"
