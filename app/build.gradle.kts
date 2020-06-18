@@ -6,6 +6,7 @@ plugins {
     id("kotlin-android")
     id("com.google.gms.google-services")
     id("eu.davidea.grabver")
+    id("com.google.firebase.appdistribution")
 }
 
 val keysFile = rootProject.file("keys.properties")
@@ -48,6 +49,12 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            firebaseAppDistribution {
+                releaseNotesFile = projectDir.absolutePath + "log.txt"
+                groupsFile = projectDir.absolutePath + "group.txt"
+                serviceCredentialsFile =
+                    projectDir.absolutePath + "ru-dzgeorgy-leaf-efa8ee88d103.json"
+            }
         }
         getByName("debug") {
             isMinifyEnabled = false

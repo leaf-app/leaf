@@ -9,6 +9,7 @@ buildscript {
         classpath(Dependencies.Plugins.gms)
         classpath(Dependencies.Plugins.kotlin)
         classpath(Dependencies.Plugins.grabver)
+        classpath(Dependencies.Plugins.firebaseAppDistr)
     }
 }
 
