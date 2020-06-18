@@ -5,11 +5,18 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("com.google.gms.google-services")
+    id("eu.davidea.grabver")
 }
 
 val keysFile = rootProject.file("keys.properties")
 val keysProps = Properties()
 keysProps.load(FileInputStream(keysFile))
+
+versioning {
+    major = 0
+    minor = 0
+    preRelease = "alpha"
+}
 
 android {
     signingConfigs {
@@ -27,8 +34,8 @@ android {
         applicationId = "ru.dzgeorgy.leaf"
         minSdkVersion(23)
         targetSdkVersion(30)
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = versioning.code
+        versionName = versioning.name
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         signingConfig = signingConfigs.getByName("default")
@@ -41,6 +48,14 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        getByName("debug") {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            versionNameSuffix = versioning.build.toString()
         }
     }
     compileOptions {
