@@ -15,7 +15,7 @@ keysProps.load(FileInputStream(keysFile))
 
 versioning {
     major = 0
-    minor = 0
+    minor = 1
     preRelease = "alpha"
 }
 
