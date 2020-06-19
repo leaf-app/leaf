@@ -49,6 +49,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("default")
             firebaseAppDistribution {
                 releaseNotesFile = rootDir.absolutePath + "/log.txt"
                 groupsFile = rootDir.absolutePath + "/group.txt"
@@ -63,6 +64,7 @@ android {
                 "proguard-rules.pro"
             )
             versionNameSuffix = versioning.build.toString()
+            signingConfig = signingConfigs.getByName("default")
         }
     }
     compileOptions {
