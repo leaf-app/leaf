@@ -3,8 +3,9 @@
     package="ru.dzgeorgy.leaf">
 
     <application
-        android:autoRevokePermissions="allowed"
+        android:name=".Leaf"
         android:allowBackup="false"
+        android:autoRevokePermissions="allowed"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
