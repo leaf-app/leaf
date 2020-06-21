@@ -23,6 +23,12 @@ object Dependencies {
             "com.google.firebase:firebase-analytics-ktx:${Versions.firebaseAnalytics}"
         const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
         const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
+        const val lifecycleCommon =
+            "androidx.lifecycle:lifecycle-common-java8:${Versions.lifecycle}"
+        const val lifecycleLiveData =
+            "androidx.lifecycle:lifecycle-livedata-ktx${Versions.lifecycle}"
+        const val lifecycleViewModel =
+            "androidx.lifecycle:lifecycle-viewmodel-ktx${Versions.lifecycle}"
         const val materialComponents =
             "com.google.android.material:material:${Versions.materialComponents}"
         const val navigation = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
@@ -60,6 +66,7 @@ object Dependencies {
         const val junit = "4.13"
         const val jvm = "1.8"
         const val kotlin = "1.3.72"
+        const val lifecycle = "2.3.0-alpha04"
         const val materialComponents = "1.3.0-alpha01"
         const val navigation = "2.3.0-rc01"
     }
