@@ -7,6 +7,8 @@ plugins {
     id("com.google.gms.google-services")
     id("eu.davidea.grabver")
     id("com.google.firebase.appdistribution")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 val keysFile = rootProject.file("keys.properties")
@@ -87,6 +89,10 @@ dependencies {
     implementation(Dependencies.Libs.appcompat)
     implementation(Dependencies.Libs.core)
     implementation(Dependencies.Libs.materialComponents)
+    implementation(Dependencies.Libs.hilt)
+
+    //Annotation processors
+    kapt(Dependencies.AnnotationProcessors.hilt)
 
     //Firebase
     implementation(Dependencies.Libs.firebaseAnalytics)
@@ -95,4 +101,8 @@ dependencies {
     testImplementation(Dependencies.TestLibs.junit)
     androidTestImplementation(Dependencies.TestLibs.test)
     androidTestImplementation(Dependencies.TestLibs.espresso)
+}
+
+kapt {
+    correctErrorTypes = true
 }

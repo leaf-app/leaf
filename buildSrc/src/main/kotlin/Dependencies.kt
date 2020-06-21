@@ -7,6 +7,7 @@ object Dependencies {
         const val grabver = "eu.davidea:grabver:${Versions.grabver}"
         const val firebaseAppDistr =
             "com.google.firebase:firebase-appdistribution-gradle:${Versions.firebaseAppDistr}"
+        const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
         const val navigation =
             "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
     }
@@ -17,10 +18,15 @@ object Dependencies {
         const val core = "androidx.core:core-ktx:${Versions.core}"
         const val firebaseAnalytics =
             "com.google.firebase:firebase-analytics-ktx:${Versions.firebaseAnalytics}"
+        const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
         const val materialComponents =
             "com.google.android.material:material:${Versions.materialComponents}"
         const val navigation = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
         const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+    }
+
+    object AnnotationProcessors {
+        const val hilt = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
     }
 
     object TestLibs {
@@ -43,6 +49,7 @@ object Dependencies {
         const val firebaseAppDistr = "2.0.0"
         const val gms = "4.3.3"
         const val grabver = "2.0.2"
+        const val hilt = "2.28-alpha"
         const val junit = "4.13"
         const val jvm = "1.8"
         const val kotlin = "1.3.72"
