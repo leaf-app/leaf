@@ -14,10 +14,14 @@ object Dependencies {
 
     object Libs {
         const val kotlinStd = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
+        const val activity = "androidx.activity:activity-ktx:${Versions.activity}"
         const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
+        const val constraintLayout =
+            "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
         const val core = "androidx.core:core-ktx:${Versions.core}"
         const val firebaseAnalytics =
             "com.google.firebase:firebase-analytics-ktx:${Versions.firebaseAnalytics}"
+        const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
         const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
         const val materialComponents =
             "com.google.android.material:material:${Versions.materialComponents}"
@@ -38,15 +42,18 @@ object Dependencies {
 
     //A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
     object Versions {
+        const val activity = "1.2.0-alpha06"
         const val androidGradle = "4.2.0-alpha02"
         const val test = "1.3.0-rc01"
         const val appcompat = "1.3.0-alpha01"
         const val buildTools = "30.0.0"
         const val compileSdk = 30
+        const val constraintLayout = "2.0.0-beta7"
         const val core = "1.4.0-alpha01"
         const val espresso = "3.2.0"
         const val firebaseAnalytics = "17.4.3"
         const val firebaseAppDistr = "2.0.0"
+        const val fragment = "1.3.0-alpha06"
         const val gms = "4.3.3"
         const val grabver = "2.0.2"
         const val hilt = "2.28-alpha"
