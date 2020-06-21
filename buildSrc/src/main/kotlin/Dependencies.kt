@@ -26,9 +26,9 @@ object Dependencies {
         const val lifecycleCommon =
             "androidx.lifecycle:lifecycle-common-java8:${Versions.lifecycle}"
         const val lifecycleLiveData =
-            "androidx.lifecycle:lifecycle-livedata-ktx${Versions.lifecycle}"
+            "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
         const val lifecycleViewModel =
-            "androidx.lifecycle:lifecycle-viewmodel-ktx${Versions.lifecycle}"
+            "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
         const val materialComponents =
             "com.google.android.material:material:${Versions.materialComponents}"
         const val navigation = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
