@@ -28,13 +28,13 @@ android {
             keyPassword = keysProps.getProperty("KEY_PASSWORD")
         }
     }
-    compileSdkVersion(30)
-    buildToolsVersion = "30.0.0"
+    compileSdkVersion(Dependencies.Versions.compileSdk)
+    buildToolsVersion = Dependencies.Versions.buildTools
 
     defaultConfig {
         applicationId = "ru.dzgeorgy.leaf"
         minSdkVersion(23)
-        targetSdkVersion(30)
+        targetSdkVersion(Dependencies.Versions.compileSdk)
         versionCode = versioning.code
         versionName = versioning.name
 
@@ -74,7 +74,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Dependencies.Versions.jvm
     }
 }
 

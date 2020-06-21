@@ -32,9 +32,11 @@ object Dependencies {
 
     //A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
     object Versions {
-        const val androidGradle = "4.2.0-alpha01"
+        const val androidGradle = "4.2.0-alpha02"
         const val test = "1.3.0-rc01"
         const val appcompat = "1.3.0-alpha01"
+        const val buildTools = "30.0.0"
+        const val compileSdk = 30
         const val core = "1.4.0-alpha01"
         const val espresso = "3.2.0"
         const val firebaseAnalytics = "17.4.3"
@@ -42,6 +44,7 @@ object Dependencies {
         const val gms = "4.3.3"
         const val grabver = "2.0.2"
         const val junit = "4.13"
+        const val jvm = "1.8"
         const val kotlin = "1.3.72"
         const val materialComponents = "1.3.0-alpha01"
         const val navigation = "2.3.0-rc01"
