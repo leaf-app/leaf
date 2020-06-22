@@ -78,6 +78,9 @@ android {
     kotlinOptions {
         jvmTarget = Dependencies.Versions.jvm
     }
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
