@@ -81,14 +81,15 @@ android {
 }
 
 dependencies {
+    //Projects
+    implementation(project(":ui"))
+    implementation(project(":auth"))
 
     //Kotlin standard library
     implementation(Dependencies.Libs.kotlinStd)
 
     //Libraries
-    implementation(Dependencies.Libs.appcompat)
     implementation(Dependencies.Libs.core)
-    implementation(Dependencies.Libs.materialComponents)
     implementation(Dependencies.Libs.hilt)
 
     //Annotation processors
