@@ -11,6 +11,7 @@ buildscript {
         classpath(Dependencies.Plugins.grabver)
         classpath(Dependencies.Plugins.firebaseAppDistr)
         classpath(Dependencies.Plugins.hilt)
+        classpath(Dependencies.Plugins.navigation)
     }
 }
 
