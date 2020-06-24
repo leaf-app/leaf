@@ -39,6 +39,9 @@
         <item name="textAppearanceCaption">@style/TextAppearance.LeafTheme.Caption</item>
         <item name="textAppearanceOverline">@style/TextAppearance.LeafTheme.Overline</item>
 
+        <!-- Widgets -->
+        <item name="textInputStyle">@style/Widget.LeafTheme.TextInput</item>
+
     </style>
 
 </resources>
