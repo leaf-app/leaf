@@ -35,7 +35,7 @@ android {
 
     defaultConfig {
         applicationId = "ru.dzgeorgy.leaf"
-        minSdkVersion(23)
+        minSdkVersion(Dependencies.Versions.minSdk)
         targetSdkVersion(Dependencies.Versions.compileSdk)
         versionCode = versioning.code
         versionName = versioning.name
