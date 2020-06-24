@@ -21,7 +21,7 @@ android {
 
 dependencies {
     //Projects
-    implementation(project(":core"))
+    api(project(":core"))
 
     //Libraries
     api(Dependencies.Libs.activity)

@@ -27,5 +27,4 @@ android {
 dependencies {
     //Projects
     implementation(project(":ui"))
-    implementation(project(":core"))
 }
