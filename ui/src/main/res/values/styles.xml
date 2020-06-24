@@ -2,4 +2,12 @@
 <resources>
 
     <style name="Widget.LeafTheme.TextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox" />
+
+    <style name="Widget.LeafTheme.BottomAppBar" parent="Widget.MaterialComponents.BottomAppBar">
+        <item name="navigationIcon">@drawable/ic_menu</item>
+        <item name="fabCradleMargin">12dp</item>
+        <item name="fabCradleRoundedCornerRadius">12dp</item>
+        <item name="fabCradleVerticalOffset">12dp</item>
+    </style>
+
 </resources>

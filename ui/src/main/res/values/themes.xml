@@ -41,6 +41,7 @@
 
         <!-- Widgets -->
         <item name="textInputStyle">@style/Widget.LeafTheme.TextInput</item>
+        <item name="bottomAppBarStyle">@style/Widget.LeafTheme.BottomAppBar</item>
 
     </style>
 
