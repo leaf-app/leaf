@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00ab4a</color>
-    <color name="colorOnPrimary">#212121</color>
-    <color name="colorSecondary">#ab0061</color>
+    <color name="colorPrimary">#00d368</color>
+    <color name="colorOnPrimary">#121212</color>
+    <color name="colorSecondary">#f86834</color>
     <color name="colorOnSecondary">#fff</color>
     <color name="colorSurface">#fff</color>
-    <color name="colorOnSurface">#212121</color>
+    <color name="colorOnSurface">#121212</color>
     <color name="colorSystemBars">#b3ffffff</color>
     <color name="colorBrandVK">#4680c2</color>
 </resources>
