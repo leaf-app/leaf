@@ -20,15 +20,13 @@ android {
 }
 
 dependencies {
-
-    //Kotlin standard library
-    implementation(Dependencies.Libs.kotlinStd)
+    //Projects
+    implementation(project(":core"))
 
     //Libraries
     api(Dependencies.Libs.activity)
     api(Dependencies.Libs.appcompat)
     api(Dependencies.Libs.constraintLayout)
-    api(Dependencies.Libs.core)
     api(Dependencies.Libs.fragment)
     api(Dependencies.Libs.lifecycleCommon)
     api(Dependencies.Libs.lifecycleLiveData)

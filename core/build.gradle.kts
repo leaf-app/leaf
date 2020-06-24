@@ -1,13 +1,29 @@
 plugins {
-    id("java-library")
-    id("kotlin")
+    id("com.android.library")
+    id("kotlin-android")
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+android {
+    compileSdkVersion(Dependencies.Versions.compileSdk)
+    buildToolsVersion = Dependencies.Versions.buildTools
+    defaultConfig {
+        minSdkVersion(Dependencies.Versions.minSdk)
+        targetSdkVersion(Dependencies.Versions.compileSdk)
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = Dependencies.Versions.jvm
+    }
 }
 
 dependencies {
-    implementation(Dependencies.Libs.kotlinStd)
+
+    //Kotlin standard library
+    api(Dependencies.Libs.kotlinStd)
+
+    //Libraries
+    api(Dependencies.Libs.core)
 }

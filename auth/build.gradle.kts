@@ -27,10 +27,5 @@ android {
 dependencies {
     //Projects
     implementation(project(":ui"))
-
-    //Kotlin standard library
-    implementation(Dependencies.Libs.kotlinStd)
-
-    //Libraries
-    implementation(Dependencies.Libs.core)
+    implementation(project(":core"))
 }
