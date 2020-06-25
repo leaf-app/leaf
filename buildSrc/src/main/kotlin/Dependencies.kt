@@ -19,10 +19,12 @@ object Dependencies {
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
         const val core = "androidx.core:core-ktx:${Versions.core}"
+        const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
         const val firebaseAnalytics =
             "com.google.firebase:firebase-analytics-ktx:${Versions.firebaseAnalytics}"
         const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
         const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
+        const val hiltAndroid = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltAndroid}"
         const val lifecycleCommon =
             "androidx.lifecycle:lifecycle-common-java8:${Versions.lifecycle}"
         const val lifecycleLiveData =
@@ -36,7 +38,9 @@ object Dependencies {
     }
 
     object AnnotationProcessors {
+        const val dagger = "com.google.dagger:dagger-compiler:${Versions.dagger}"
         const val hilt = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+        const val hiltAndroid = "androidx.hilt:hilt-compiler:${Versions.hiltAndroid}"
     }
 
     object TestLibs {
@@ -56,13 +60,15 @@ object Dependencies {
         const val compileSdk = 30
         const val constraintLayout = "2.0.0-beta7"
         const val core = "1.4.0-alpha01"
+        const val dagger = "2.28.1"
         const val espresso = "3.2.0"
         const val firebaseAnalytics = "17.4.3"
         const val firebaseAppDistr = "2.0.0"
         const val fragment = "1.3.0-alpha06"
         const val gms = "4.3.3"
         const val grabver = "2.0.2"
-        const val hilt = "2.28-alpha"
+        const val hilt = "2.28.1-alpha"
+        const val hiltAndroid = "1.0.0-alpha01"
         const val junit = "4.13"
         const val jvm = "1.8"
         const val kotlin = "1.3.72"

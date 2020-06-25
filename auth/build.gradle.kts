@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("androidx.navigation.safeargs.kotlin")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -27,4 +28,16 @@ android {
 dependencies {
     //Projects
     implementation(project(":ui"))
+
+    //Libraries
+    implementation(Dependencies.Libs.hilt)
+    implementation(Dependencies.Libs.hiltAndroid)
+
+    //Annotation processors
+    kapt(Dependencies.AnnotationProcessors.hilt)
+    kapt(Dependencies.AnnotationProcessors.hiltAndroid)
+}
+
+kapt {
+    correctErrorTypes = true
 }

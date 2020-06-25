@@ -61,8 +61,8 @@ android {
             }
         }
         getByName("debug") {
-            isMinifyEnabled = true
-            isShrinkResources = true
+            isMinifyEnabled = false
+            isShrinkResources = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -91,9 +91,11 @@ dependencies {
 
     //Libraries
     implementation(Dependencies.Libs.hilt)
+    implementation(Dependencies.Libs.hiltAndroid)
 
     //Annotation processors
     kapt(Dependencies.AnnotationProcessors.hilt)
+    kapt(Dependencies.AnnotationProcessors.hiltAndroid)
 
     //Firebase
     implementation(Dependencies.Libs.firebaseAnalytics)
