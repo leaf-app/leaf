@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Leaf"
-        tools:targetApi="r">
+        tools:targetApi="30">
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -20,7 +20,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ru.dzgeorgy.auth.LoginActivity" />
+
+        <service
+            android:name="ru.dzgeorgy.auth.service.AuthenticatorService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/leaf_authenticator" />
+        </service>
+
+        <activity android:name="ru.dzgeorgy.auth.ui.activity.LoginActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
