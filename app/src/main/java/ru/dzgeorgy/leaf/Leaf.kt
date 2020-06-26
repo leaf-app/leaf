@@ -16,12 +16,13 @@ class Leaf : Application() {
         Firebase.remoteConfig.apply {
             setDefaultsAsync(ru.dzgeorgy.core.R.xml.remote_config_defaults)
             if (BuildConfig.DEBUG) remoteConfigSettings { minimumFetchIntervalInSeconds = 3600 }
+        }.fetchAndActivate().addOnCompleteListener {
+            startActivity(
+                Intent(
+                    this,
+                    LoginActivity::class.java
+                ).also { it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) })
         }
-        startActivity(
-            Intent(
-                this,
-                LoginActivity::class.java
-            ).also { it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) })
     }
 
 }
