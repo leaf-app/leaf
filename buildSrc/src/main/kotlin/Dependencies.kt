@@ -21,6 +21,8 @@ object Dependencies {
         const val core = "androidx.core:core-ktx:${Versions.core}"
         const val firebaseAnalytics =
             "com.google.firebase:firebase-analytics-ktx:${Versions.firebaseAnalytics}"
+        const val firebaseConfig =
+            "com.google.firebase:firebase-config-ktx:${Versions.firebaseConfig}"
         const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
         const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
         const val hiltAndroid = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltAndroid}"
@@ -61,6 +63,7 @@ object Dependencies {
         const val espresso = "3.2.0"
         const val firebaseAnalytics = "17.4.3"
         const val firebaseAppDistr = "2.0.0"
+        const val firebaseConfig = "19.1.4"
         const val fragment = "1.3.0-alpha06"
         const val gms = "4.3.3"
         const val grabver = "2.0.2"

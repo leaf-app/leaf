@@ -26,4 +26,5 @@ dependencies {
 
     //Libraries
     api(Dependencies.Libs.core)
+    api(Dependencies.Libs.firebaseConfig)
 }
