@@ -9,6 +9,16 @@
         android:id="@+id/mainFragment"
         android:name="ru.dzgeorgy.auth.ui.fragments.MainFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/main_to_web"
+            app:destination="@id/webFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/webFragment"
+        android:name="ru.dzgeorgy.auth.ui.fragments.WebFragment"
+        android:label="WebFragment"
+        tools:layout="@layout/fragment_web" />
 
 </navigation>
