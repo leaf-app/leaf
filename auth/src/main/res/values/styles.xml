@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.LeafTheme.VKButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/colorBrandVK</item>
+        <item name="android:textColor">@color/colorBrandVK</item>
+        <item name="rippleColor">@color/colorBrandVK</item>
+    </style>
+
+</resources>

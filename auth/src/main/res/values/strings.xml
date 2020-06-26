@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sign_in">Sign In</string>
+    <string name="login_hint">Email or phone</string>
+    <string name="password_hint">Password</string>
+    <string name="vk_sign_in">Sign In with VK</string>
+    <string name="or">or</string>
+</resources>
