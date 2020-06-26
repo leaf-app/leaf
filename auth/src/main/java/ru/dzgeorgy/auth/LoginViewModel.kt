@@ -13,4 +13,8 @@ class LoginViewModel @ViewModelInject constructor(private val authenticator: Lea
     val directAuthEnabled =
         ObservableBoolean(Firebase.remoteConfig.getBoolean("direct_auth_enabled"))
 
+    fun onVkSignInClick() {
+
+    }
+
 }

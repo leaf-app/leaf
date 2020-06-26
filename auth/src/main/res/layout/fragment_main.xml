@@ -104,6 +104,7 @@
             android:layout_marginStart="@dimen/inputs_side_margin"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="@dimen/inputs_side_margin"
+            android:onClick="@{() -> viewModel.onVkSignInClick()}"
             android:text="@string/vk_sign_in"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
