@@ -36,6 +36,7 @@ object Dependencies {
             "com.google.android.material:material:${Versions.materialComponents}"
         const val navigation = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
         const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+        const val webkit = "androidx.webkit:webkit:${Versions.webkit}"
     }
 
     object AnnotationProcessors {
@@ -76,6 +77,7 @@ object Dependencies {
         const val materialComponents = "1.3.0-alpha01"
         const val minSdk = 23
         const val navigation = "2.3.0"
+        const val webkit = "1.3.0-rc01"
     }
 
 }

@@ -32,6 +32,7 @@ dependencies {
     //Libraries
     implementation(Dependencies.Libs.hilt)
     implementation(Dependencies.Libs.hiltAndroid)
+    implementation(Dependencies.Libs.webkit)
 
     //Annotation processors
     kapt(Dependencies.AnnotationProcessors.hilt)
