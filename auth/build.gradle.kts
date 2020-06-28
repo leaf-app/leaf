@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.*
+
 plugins {
     id("com.android.library")
     id("kotlin-android")
@@ -6,12 +9,17 @@ plugins {
     id("dagger.hilt.android.plugin")
 }
 
+val keysPropsFile = rootProject.file("keys.properties")
+val keysProps = Properties()
+keysProps.load(FileInputStream(keysPropsFile))
+
 android {
     compileSdkVersion(Dependencies.Versions.compileSdk)
     buildToolsVersion = Dependencies.Versions.buildTools
     defaultConfig {
         minSdkVersion(Dependencies.Versions.minSdk)
         targetSdkVersion(Dependencies.Versions.compileSdk)
+        buildConfigField("String", "VK_APP_ID", keysProps["VK_APP_ID"].toString())
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
