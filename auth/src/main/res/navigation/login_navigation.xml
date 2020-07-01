@@ -19,6 +19,26 @@
         android:id="@+id/webFragment"
         android:name="ru.dzgeorgy.auth.ui.fragments.WebFragment"
         android:label="WebFragment"
-        tools:layout="@layout/fragment_web" />
+        tools:layout="@layout/fragment_web">
+        <action
+            android:id="@+id/web_to_progress"
+            app:destination="@id/progressFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/progressFragment"
+        android:name="ru.dzgeorgy.auth.ui.fragments.ProgressFragment"
+        android:label="ProgressFragment"
+        tools:layout="@layout/fragment_progress">
+        <action
+            android:id="@+id/progress_to_welcome"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="ru.dzgeorgy.auth.ui.fragments.WelcomeFragment"
+        android:label="WelcomeFragment"
+        tools:layout="@layout/fragment_welcome" />
 
 </navigation>
