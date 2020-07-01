@@ -10,16 +10,13 @@ import android.os.Bundle
 import dagger.hilt.android.qualifiers.ApplicationContext
 import ru.dzgeorgy.auth.R
 import ru.dzgeorgy.auth.ui.activity.LoginActivity
+import ru.dzgeorgy.core.account.AccountUtils.Companion.TOKEN_TYPE
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class LeafAuthenticator @Inject constructor(@ApplicationContext private val context: Context) :
     AbstractAccountAuthenticator(context) {
-
-    companion object {
-        val TOKEN_TYPE = "standard"
-    }
 
     override fun getAuthTokenLabel(p0: String?) = context.getString(R.string.app_name)
 
