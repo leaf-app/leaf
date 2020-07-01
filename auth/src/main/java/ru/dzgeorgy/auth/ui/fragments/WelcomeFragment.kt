@@ -4,20 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import ru.dzgeorgy.auth.LoginViewModel
-import ru.dzgeorgy.auth.R
-import ru.dzgeorgy.auth.databinding.FragmentMainBinding
+import ru.dzgeorgy.auth.databinding.FragmentWelcomeBinding
 
 @AndroidEntryPoint
-class MainFragment : Fragment() {
+class WelcomeFragment : Fragment() {
 
-    private lateinit var binding: FragmentMainBinding
+    private lateinit var binding: FragmentWelcomeBinding
     private val viewModel by activityViewModels<LoginViewModel>()
 
     override fun onCreateView(
@@ -25,16 +22,14 @@ class MainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_main, container, false)
+        binding = FragmentWelcomeBinding.inflate(inflater, container, false)
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
-            viewModel = this@MainFragment.viewModel
+            viewModel = this@WelcomeFragment.viewModel
         }
-        viewModel.apply {
-            moveToWeb.observe(viewLifecycleOwner, Observer {
-                if (it) findNavController().navigate(R.id.main_to_web)
-            })
-        }
+        viewModel.moveToMainActivity.observe(viewLifecycleOwner, Observer {
+            if (it) requireActivity().finish()
+        })
         return binding.root
     }
 
