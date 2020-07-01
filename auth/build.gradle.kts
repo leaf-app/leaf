@@ -7,6 +7,7 @@ plugins {
     id("kotlin-kapt")
     id("androidx.navigation.safeargs.kotlin")
     id("dagger.hilt.android.plugin")
+    id("kotlinx-serialization")
 }
 
 val keysPropsFile = rootProject.file("keys.properties")
@@ -40,6 +41,10 @@ dependencies {
     //Libraries
     implementation(Dependencies.Libs.hilt)
     implementation(Dependencies.Libs.hiltAndroid)
+    implementation(Dependencies.Libs.ktor)
+    implementation(Dependencies.Libs.ktorLogging)
+    implementation(Dependencies.Libs.ktorOkHttp)
+    implementation(Dependencies.Libs.ktorSerialization)
     implementation(Dependencies.Libs.webkit)
 
     //Annotation processors

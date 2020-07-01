@@ -10,12 +10,15 @@ object Dependencies {
         const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
         const val navigation =
             "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
+        const val kotlinSerialization =
+            "org.jetbrains.kotlin:kotlin-serialization:${Versions.kotlin}"
     }
 
     object Libs {
         const val kotlinStd = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
         const val activity = "androidx.activity:activity-ktx:${Versions.activity}"
         const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
+        const val coil = "io.coil-kt:coil:${Versions.coil}"
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
         const val core = "androidx.core:core-ktx:${Versions.core}"
@@ -26,6 +29,14 @@ object Dependencies {
         const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
         const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
         const val hiltAndroid = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltAndroid}"
+        const val kotlinCoroutines =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlinCoroutines}"
+        const val kotlinSerialization =
+            "org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlinSerialization}"
+        const val ktor = "io.ktor:ktor-client-core:${Versions.ktor}"
+        const val ktorLogging = "io.ktor:ktor-client-logging-jvm:${Versions.ktor}"
+        const val ktorOkHttp = "io.ktor:ktor-client-okhttp:${Versions.ktor}"
+        const val ktorSerialization = "io.ktor:ktor-client-serialization-jvm:${Versions.ktor}"
         const val lifecycleCommon =
             "androidx.lifecycle:lifecycle-common-java8:${Versions.lifecycle}"
         const val lifecycleLiveData =
@@ -58,6 +69,7 @@ object Dependencies {
         const val test = "1.3.0-rc01"
         const val appcompat = "1.3.0-alpha01"
         const val buildTools = "30.0.0"
+        const val coil = "0.11.0"
         const val compileSdk = 30
         const val constraintLayout = "2.0.0-beta7"
         const val core = "1.4.0-alpha01"
@@ -73,6 +85,9 @@ object Dependencies {
         const val junit = "4.13"
         const val jvm = "1.8"
         const val kotlin = "1.3.72"
+        const val kotlinCoroutines = "1.3.7"
+        const val kotlinSerialization = "0.20.0"
+        const val ktor = "1.3.2"
         const val lifecycle = "2.3.0-alpha05"
         const val materialComponents = "1.3.0-alpha01"
         const val minSdk = 23

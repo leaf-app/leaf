@@ -32,7 +32,9 @@ android {
     }
     compileSdkVersion(Dependencies.Versions.compileSdk)
     buildToolsVersion = Dependencies.Versions.buildTools
-
+    packagingOptions {
+        exclude("META-INF/*.kotlin_module")
+    }
     defaultConfig {
         applicationId = "ru.dzgeorgy.leaf"
         minSdkVersion(Dependencies.Versions.minSdk)

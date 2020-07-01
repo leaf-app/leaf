@@ -12,6 +12,7 @@ buildscript {
         classpath(Dependencies.Plugins.firebaseAppDistr)
         classpath(Dependencies.Plugins.hilt)
         classpath(Dependencies.Plugins.navigation)
+        classpath(Dependencies.Plugins.kotlinSerialization)
     }
 }
 

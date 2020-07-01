@@ -1,6 +1,9 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
+    kotlin("plugin.serialization")
 }
 
 android {
@@ -29,4 +32,18 @@ dependencies {
     //Libraries
     api(Dependencies.Libs.core)
     api(Dependencies.Libs.firebaseConfig)
+    api(Dependencies.Libs.hilt)
+    api(Dependencies.Libs.hiltAndroid)
+    api(Dependencies.Libs.kotlinCoroutines)
+    api(Dependencies.Libs.kotlinSerialization)
+    api(Dependencies.Libs.navigation)
+    api(Dependencies.Libs.navigationUi)
+
+    //Annotation processors
+    kapt(Dependencies.AnnotationProcessors.hilt)
+    kapt(Dependencies.AnnotationProcessors.hiltAndroid)
+}
+
+kapt {
+    correctErrorTypes = true
 }

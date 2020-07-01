@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -17,6 +18,7 @@ android {
     kotlinOptions {
         jvmTarget = Dependencies.Versions.jvm
     }
+    buildFeatures.dataBinding = true
 }
 
 dependencies {
@@ -26,6 +28,7 @@ dependencies {
     //Libraries
     api(Dependencies.Libs.activity)
     api(Dependencies.Libs.appcompat)
+    api(Dependencies.Libs.coil)
     api(Dependencies.Libs.constraintLayout)
     api(Dependencies.Libs.fragment)
     api(Dependencies.Libs.lifecycleCommon)
