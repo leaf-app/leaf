@@ -54,7 +54,7 @@ object Dependencies {
     //A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
     object Versions {
         const val activity = "1.2.0-alpha06"
-        const val androidGradle = "4.2.0-alpha02"
+        const val androidGradle = "4.2.0-alpha03"
         const val test = "1.3.0-rc01"
         const val appcompat = "1.3.0-alpha01"
         const val buildTools = "30.0.0"
