@@ -36,6 +36,8 @@ dependencies {
     api(Dependencies.Libs.hiltAndroid)
     api(Dependencies.Libs.kotlinCoroutines)
     api(Dependencies.Libs.kotlinSerialization)
+    api(Dependencies.Libs.navigation)
+    api(Dependencies.Libs.navigationUi)
 
     //Annotation processors
     kapt(Dependencies.AnnotationProcessors.hilt)
