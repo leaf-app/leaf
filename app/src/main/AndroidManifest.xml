@@ -14,7 +14,9 @@
         android:theme="@style/Theme.Leaf"
         tools:targetApi="30">
 
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -33,7 +35,11 @@
                 android:resource="@xml/leaf_authenticator" />
         </service>
 
-        <activity android:name="ru.dzgeorgy.auth.ui.activity.LoginActivity" />
+        <activity
+            android:name="ru.dzgeorgy.auth.ui.activity.LoginActivity"
+            android:noHistory="true">
+            <nav-graph android:value="@navigation/login_navigation" />
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"

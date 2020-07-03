@@ -1,5 +1,7 @@
 package ru.dzgeorgy.auth.ui.fragments
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,7 +30,13 @@ class WelcomeFragment : Fragment() {
             viewModel = this@WelcomeFragment.viewModel
         }
         viewModel.moveToMainActivity.observe(viewLifecycleOwner, Observer {
-            if (it) requireActivity().finish()
+            if (it) {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("app://leaf/main"))
+                requireActivity().apply {
+                    finish()
+                    startActivity(intent)
+                }
+            }
         })
         return binding.root
     }

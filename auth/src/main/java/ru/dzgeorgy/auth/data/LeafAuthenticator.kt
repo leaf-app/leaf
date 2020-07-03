@@ -6,6 +6,7 @@ import android.accounts.AccountAuthenticatorResponse
 import android.accounts.AccountManager
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import dagger.hilt.android.qualifiers.ApplicationContext
 import ru.dzgeorgy.auth.R
@@ -73,7 +74,7 @@ class LeafAuthenticator @Inject constructor(@ApplicationContext private val cont
         requiredFeatures: Array<out String>?,
         options: Bundle?
     ): Bundle {
-        val intent = Intent(context, LoginActivity::class.java)
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("app://leaf/login"))
         intent.apply {
             putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response)
             putExtra(AccountManager.KEY_ACCOUNT_TYPE, accountType)

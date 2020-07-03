@@ -10,6 +10,7 @@
         android:name="ru.dzgeorgy.auth.ui.fragments.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main">
+        <deepLink app:uri="app://leaf/login" />
         <action
             android:id="@+id/main_to_web"
             app:destination="@id/webFragment" />
@@ -40,5 +41,7 @@
         android:name="ru.dzgeorgy.auth.ui.fragments.WelcomeFragment"
         android:label="WelcomeFragment"
         tools:layout="@layout/fragment_welcome" />
+
+    <include app:graph="@navigation/main_navigation" />
 
 </navigation>
