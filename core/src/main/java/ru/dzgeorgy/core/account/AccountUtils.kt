@@ -66,7 +66,7 @@ class AccountUtils @Inject constructor(
         }
     }
 
-    suspend fun getActive(): AccountInfo? {
+    suspend fun getActive(): AccountInfo? = withContext(Dispatchers.IO) {
         val accounts = am.getAccountsByType(ACCOUNT_TYPE)
         var account: Account? = null
         if (accounts.isNotEmpty()) {
@@ -76,9 +76,9 @@ class AccountUtils @Inject constructor(
                     return@forEach
                 }
             }
-            return getAccountInfo(account ?: accounts[0].also { it.setActive(false) })
+            getAccountInfo(account ?: accounts[0].also { it.setActive(false) })
         }
-        return null
+        null
     }
 
     private suspend fun getAccountInfo(account: Account): AccountInfo =
