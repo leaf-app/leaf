@@ -42,6 +42,7 @@
         android:label="WelcomeFragment"
         tools:layout="@layout/fragment_welcome" />
 
+    <!--suppress AndroidDomInspection -->
     <include app:graph="@navigation/main_navigation" />
 
 </navigation>
