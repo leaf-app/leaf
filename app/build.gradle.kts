@@ -28,6 +28,8 @@ android {
             keyAlias = "leaf"
             storePassword = keysProps.getProperty("STORE_PASSWORD")
             keyPassword = keysProps.getProperty("KEY_PASSWORD")
+            enableV3Signing = true
+            enableV4Signing = true
         }
     }
     compileSdkVersion(Dependencies.Versions.compileSdk)
