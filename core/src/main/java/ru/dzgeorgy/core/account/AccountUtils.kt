@@ -76,9 +76,9 @@ class AccountUtils @Inject constructor(
                     return@forEach
                 }
             }
-            getAccountInfo(account ?: accounts[0].also { it.setActive(false) })
+            return@withContext getAccountInfo(account ?: accounts[0].also { it.setActive(false) })
         }
-        null
+        return@withContext null
     }
 
     private suspend fun getAccountInfo(account: Account): AccountInfo =
