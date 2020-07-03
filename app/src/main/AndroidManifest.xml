@@ -15,13 +15,18 @@
         tools:targetApi="30">
 
         <activity
-            android:name=".MainActivity"
-            android:noHistory="true">
+            android:name=".SplashActivity"
+            android:noHistory="true"
+            android:theme="@style/Theme.Leaf.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:noHistory="true" />
 
         <service
             android:name="ru.dzgeorgy.auth.service.AuthenticatorService"
