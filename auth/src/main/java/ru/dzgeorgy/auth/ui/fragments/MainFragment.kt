@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 import ru.dzgeorgy.auth.LoginViewModel
 import ru.dzgeorgy.auth.R
@@ -19,6 +20,14 @@ class MainFragment : Fragment() {
 
     private lateinit var binding: FragmentMainBinding
     private val viewModel by activityViewModels<LoginViewModel>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val backward = MaterialSharedAxis(MaterialSharedAxis.X, false)
+        reenterTransition = backward
+        val forward = MaterialSharedAxis(MaterialSharedAxis.X, true)
+        exitTransition = forward
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

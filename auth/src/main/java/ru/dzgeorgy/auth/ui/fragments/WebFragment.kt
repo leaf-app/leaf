@@ -10,8 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.transition.TransitionManager
 import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewFeature
+import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 import ru.dzgeorgy.auth.BuildConfig
 import ru.dzgeorgy.auth.LoginViewModel
@@ -26,6 +28,16 @@ class WebFragment : Fragment() {
 
     private lateinit var binding: FragmentWebBinding
     private val viewModel by activityViewModels<LoginViewModel>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val forward = MaterialSharedAxis(MaterialSharedAxis.X, true)
+        enterTransition = forward
+        exitTransition = forward
+        val backward = MaterialSharedAxis(MaterialSharedAxis.X, false)
+        returnTransition = backward
+        reenterTransition = backward
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -67,10 +79,21 @@ class WebFragment : Fragment() {
                     )
                 }
             }
+            setLayerType(View.LAYER_TYPE_SOFTWARE, null)
             webViewClient = WebViewClient(
                 onComplete = { token, id -> viewModel.onLoginSuccess(token, id) },
-                onError = { error, description -> viewModel.onLoginFail(error, description) }
+                onError = { error, description -> viewModel.onLoginFail(error, description) },
+                onPageLoad = { showWebView() }
             )
+        }
+    }
+
+    private fun showWebView() {
+        if (binding.webview.visibility == View.GONE) {
+            val transition = MaterialSharedAxis(MaterialSharedAxis.X, true)
+            TransitionManager.beginDelayedTransition(binding.root.parent as ViewGroup, transition)
+            binding.progress.hide()
+            binding.webview.visibility = View.VISIBLE
         }
     }
 

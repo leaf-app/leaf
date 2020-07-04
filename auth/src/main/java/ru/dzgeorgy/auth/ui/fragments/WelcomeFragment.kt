@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 import ru.dzgeorgy.auth.LoginViewModel
 import ru.dzgeorgy.auth.databinding.FragmentWelcomeBinding
@@ -18,6 +19,16 @@ class WelcomeFragment : Fragment() {
 
     private lateinit var binding: FragmentWelcomeBinding
     private val viewModel by activityViewModels<LoginViewModel>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val forward = MaterialSharedAxis(MaterialSharedAxis.X, true)
+        enterTransition = forward
+        exitTransition = forward
+        val backward = MaterialSharedAxis(MaterialSharedAxis.X, false)
+        returnTransition = backward
+        reenterTransition = backward
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

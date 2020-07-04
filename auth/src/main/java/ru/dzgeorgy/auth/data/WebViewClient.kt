@@ -2,7 +2,6 @@ package ru.dzgeorgy.auth.data
 
 import android.annotation.SuppressLint
 import android.net.Uri
-import android.view.View
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import androidx.webkit.WebResourceErrorCompat
@@ -11,7 +10,8 @@ import androidx.webkit.WebViewFeature
 
 class WebViewClient(
     private val onComplete: (token: String, id: Int) -> Unit,
-    private val onError: (error: String, description: String) -> Unit
+    private val onError: (error: String, description: String) -> Unit,
+    private val onPageLoad: () -> Unit
 ) : WebViewClientCompat() {
 
     companion object {
@@ -21,7 +21,7 @@ class WebViewClient(
 
     override fun onPageFinished(view: WebView, url: String) {
         super.onPageFinished(view, url)
-        view.visibility = View.VISIBLE
+        onPageLoad.invoke()
     }
 
     @SuppressLint("RequiresFeature")
