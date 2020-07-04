@@ -53,6 +53,7 @@ class AccountUtils @Inject constructor(
 
     private fun Account.setData(id: Int, data: AccountInfo) {
         am.apply {
+            setUserData(this@setData, "name", data.first_name + " " + data.last_name)
             setUserData(this@setData, "id", id.toString())
             setUserData(this@setData, "photo", data.photo)
             setUserData(this@setData, "status", data.status)
@@ -83,7 +84,7 @@ class AccountUtils @Inject constructor(
 
     private suspend fun getAccountInfo(account: Account): AccountInfo =
         withContext(Dispatchers.IO) {
-            val name = account.name.split(" ", limit = 2)
+            val name = am.getUserData(account, "name").split(" ", limit = 2)
             AccountInfo(
                 am.getUserData(account, "id").toInt(),
                 name[0],
