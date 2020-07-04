@@ -35,7 +35,7 @@ class AccountUtils @Inject constructor(
     suspend fun createAccount(id: Int, token: String, data: AccountInfo) =
         withContext(Dispatchers.IO) {
             val account = Account(
-                "${data.first_name} ${data.last_name}",
+                "id$id",
                 ACCOUNT_TYPE
             )
             am.addAccountExplicitly(account, null, null)
