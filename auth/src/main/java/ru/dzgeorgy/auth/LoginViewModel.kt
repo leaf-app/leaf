@@ -1,5 +1,6 @@
 package ru.dzgeorgy.auth
 
+import android.content.Context
 import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import androidx.hilt.lifecycle.ViewModelInject
@@ -9,6 +10,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
+import dagger.hilt.android.qualifiers.ApplicationContext
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.features.json.JsonFeature
@@ -28,7 +30,8 @@ import ru.dzgeorgy.core.LiveEvent
 import ru.dzgeorgy.core.account.AccountUtils
 
 class LoginViewModel @ViewModelInject constructor(
-    private val accountUtils: AccountUtils
+    private val accountUtils: AccountUtils,
+    @ApplicationContext private val context: Context
 ) :
     ViewModel() {
 
@@ -83,7 +86,8 @@ class LoginViewModel @ViewModelInject constructor(
                     "user_ids" to "$id",
                     "access_token" to token,
                     "fields" to "photo_max, status",
-                    "v" to ru.dzgeorgy.core.BuildConfig.VK_API_VERSION
+                    "v" to ru.dzgeorgy.core.BuildConfig.VK_API_VERSION,
+                    "lang" to context.getString(R.string.locale)
                 )
             )
             _status.value = R.string.status_create_account
