@@ -23,6 +23,7 @@ import io.ktor.client.features.logging.SIMPLE
 import io.ktor.client.request.get
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlinx.serialization.ContextualSerialization
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
@@ -112,7 +113,7 @@ class LoginViewModel @ViewModelInject constructor(
     )
 
     private suspend fun getAccountInfo(params: Map<String, String>) =
-        with(Dispatchers.IO) {
+        withContext(Dispatchers.IO) {
             val httpClient = HttpClient(OkHttp) {
                 install(Logging) {
                     logger = Logger.SIMPLE
