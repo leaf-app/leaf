@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sign_in">Sign In</string>
+    <string name="login_hint">Email or phone</string>
+    <string name="password_hint">Password</string>
+    <string name="vk_sign_in">Sign In with VK</string>
+    <string name="or">or</string>
+    <string name="status_get_data">Getting data…</string>
+    <string name="status_create_account">Creating account…</string>
+    <string name="welcome_text">We are glad to introduce you light, fast and pretty third-party client for VK.\nHope you\'ll enjoy it!\nAnyway have a nice day ;)</string>
+    <string name="start">Start</string>
+    <string name="welcome_name">Welcome, %s!</string>
+    <string name="unknown_error">Unknown error</string>
+    <string name="unknown_error_message">Error occurred during sign in. Reason: %s</string>
+    <string name="access_denied_err">Access denied</string>
+    <string name="access_denied_message">Failed to access account. Please try again.</string>
+    <string name="no_internet_err">No internet connection</string>
+    <string name="no_internet_message">Please check your network connection and try again.</string>
+    <string name="ok">OK</string>
+</resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Leaf" parent="Theme.Leaf.Base" />
+
+    <style name="Theme.Leaf.Base" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!-- Colors -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="android:statusBarColor">@color/colorSystemBars</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+
+        <!-- Shape -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.LeafTheme.SmallComponent
+        </item>
+        <item name="shapeAppearanceMediumComponent">
+            @style/ShapeAppearance.LeafTheme.MediumComponent
+        </item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.LeafTheme.LargeComponent
+        </item>
+
+        <!-- Typography -->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.LeafTheme.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.LeafTheme.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.LeafTheme.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.LeafTheme.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.LeafTheme.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.LeafTheme.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.LeafTheme.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.LeafTheme.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.LeafTheme.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.LeafTheme.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.LeafTheme.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.LeafTheme.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.LeafTheme.Overline</item>
+
+        <!-- Widgets -->
+        <item name="textInputStyle">@style/Widget.LeafTheme.TextInput</item>
+        <item name="bottomAppBarStyle">@style/Widget.LeafTheme.BottomAppBar</item>
+
+    </style>
+
+</resources>

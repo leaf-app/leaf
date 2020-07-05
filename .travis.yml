@@ -31,11 +31,11 @@ android:
     - android-sdk-license-.+
     - google-gdk-license-.+
 before_install:
+  - openssl aes-256-cbc -K $encrypted_d51807034090_key -iv $encrypted_d51807034090_iv
+    -in keys.properties.enc -out keys.properties -d
   - openssl aes-256-cbc -K $encrypted_0e5c5220b33b_key -iv $encrypted_0e5c5220b33b_iv
     -in ru-dzgeorgy-leaf-efa8ee88d103.json.enc -out ru-dzgeorgy-leaf-efa8ee88d103.json
     -d
-  - openssl aes-256-cbc -K $encrypted_d51807034090_key -iv $encrypted_d51807034090_iv
-    -in keys.properties.enc -out keys.properties -d
   - openssl aes-256-cbc -K $encrypted_6a5a7dcc4b06_key -iv $encrypted_6a5a7dcc4b06_iv
     -in keys.jks.enc -out keys.jks -d
   - openssl aes-256-cbc -K $encrypted_fd8d34b142d0_key -iv $encrypted_fd8d34b142d0_iv
@@ -45,9 +45,7 @@ before_install:
   - chmod +x gradlew
   - "./gradlew dependencies || true"
 after_success:
-  - git log --oneline --decorate > log.txt
-  - test $TRAVIS_BRANCH = "master" &&
-    echo -e "dev_alpha" > group.txt
-  - test $TRAVIS_BRANCH = "v0.x.x" &&
-    echo -e "alpha" > group.txt
+  - git log --oneline --decorate $(git log --grep="Start v[0-9].[0-9|x].[0-9|x]" -1 --pretty=format:"%h")..HEAD --no-merges> log.txt
+  - test $TRAVIS_BRANCH = "master" && echo -e "alpha" > group.txt
+  - test $TRAVIS_BRANCH = "v0.x.x" && echo -e "dev_alpha" > group.txt
   - "./gradlew appDistributionUploadRelease"

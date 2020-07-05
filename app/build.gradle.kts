@@ -7,6 +7,9 @@ plugins {
     id("com.google.gms.google-services")
     id("eu.davidea.grabver")
     id("com.google.firebase.appdistribution")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
+    id("com.google.firebase.crashlytics")
 }
 
 val keysFile = rootProject.file("keys.properties")
@@ -15,7 +18,7 @@ keysProps.load(FileInputStream(keysFile))
 
 versioning {
     major = 0
-    minor = 0
+    minor = 1
     preRelease = "alpha"
 }
 
@@ -26,15 +29,20 @@ android {
             keyAlias = "leaf"
             storePassword = keysProps.getProperty("STORE_PASSWORD")
             keyPassword = keysProps.getProperty("KEY_PASSWORD")
+            enableV3Signing = true
+            enableV4Signing = true
         }
     }
-    compileSdkVersion(30)
-    buildToolsVersion = "30.0.0"
-
+    lintOptions.isAbortOnError = false
+    compileSdkVersion(Dependencies.Versions.compileSdk)
+    buildToolsVersion = Dependencies.Versions.buildTools
+    packagingOptions {
+        exclude("META-INF/*.kotlin_module")
+    }
     defaultConfig {
         applicationId = "ru.dzgeorgy.leaf"
-        minSdkVersion(23)
-        targetSdkVersion(30)
+        minSdkVersion(Dependencies.Versions.minSdk)
+        targetSdkVersion(Dependencies.Versions.compileSdk)
         versionCode = versioning.code
         versionName = versioning.name
 
@@ -44,25 +52,31 @@ android {
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("default")
             firebaseAppDistribution {
                 releaseNotesFile = rootDir.absolutePath + "/log.txt"
                 groupsFile = rootDir.absolutePath + "/group.txt"
                 serviceCredentialsFile =
                     rootDir.absolutePath + "/ru-dzgeorgy-leaf-efa8ee88d103.json"
             }
+            addManifestPlaceholders(mapOf("crashlyticsCollectionEnabled" to "true"))
         }
         getByName("debug") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
             versionNameSuffix = versioning.build.toString()
+            signingConfig = signingConfigs.getByName("default")
+            addManifestPlaceholders(mapOf("crashlyticsCollectionEnabled" to "false"))
         }
     }
     compileOptions {
@@ -70,25 +84,40 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Dependencies.Versions.jvm
+    }
+    buildFeatures {
+        dataBinding = true
+    }
+    packagingOptions {
+        exclude("META-INF/*.kotlin_module")
     }
 }
 
 dependencies {
-
-    //Kotlin standard library
-    implementation(Dependencies.Libs.kotlinStd)
+    //Projects
+    implementation(project(":ui"))
+    implementation(project(":auth"))
+    implementation(project(":core"))
 
     //Libraries
-    implementation(Dependencies.Libs.appcompat)
-    implementation(Dependencies.Libs.core)
-    implementation(Dependencies.Libs.materialComponents)
+    implementation(Dependencies.Libs.hilt)
+    implementation(Dependencies.Libs.hiltAndroid)
+
+    //Annotation processors
+    kapt(Dependencies.AnnotationProcessors.hilt)
+    kapt(Dependencies.AnnotationProcessors.hiltAndroid)
 
     //Firebase
     implementation(Dependencies.Libs.firebaseAnalytics)
+    implementation(Dependencies.Libs.firebaseCrashlytics)
 
     //Test libraries
     testImplementation(Dependencies.TestLibs.junit)
     androidTestImplementation(Dependencies.TestLibs.test)
     androidTestImplementation(Dependencies.TestLibs.espresso)
+}
+
+kapt {
+    correctErrorTypes = true
 }

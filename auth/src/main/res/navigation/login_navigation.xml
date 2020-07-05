@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="ru.dzgeorgy.auth.ui.fragments.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+        <deepLink app:uri="app://leaf/login" />
+        <action
+            app:popUpTo="@id/mainFragment"
+            android:id="@+id/main_to_web"
+            app:destination="@id/webFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/webFragment"
+        android:name="ru.dzgeorgy.auth.ui.fragments.WebFragment"
+        android:label="WebFragment"
+        tools:layout="@layout/fragment_web">
+        <action
+            app:popUpTo="@id/mainFragment"
+            android:id="@+id/web_to_progress"
+            app:destination="@id/progressFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/progressFragment"
+        android:name="ru.dzgeorgy.auth.ui.fragments.ProgressFragment"
+        android:label="ProgressFragment"
+        tools:layout="@layout/fragment_progress">
+        <action
+            app:popUpTo="@id/mainFragment"
+            android:id="@+id/progress_to_welcome"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="ru.dzgeorgy.auth.ui.fragments.WelcomeFragment"
+        android:label="WelcomeFragment"
+        tools:layout="@layout/fragment_welcome" />
+
+</navigation>

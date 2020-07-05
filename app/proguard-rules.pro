@@ -19,3 +19,12 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-dontnote kotlinx.serialization.SerializationKt
+-keep,includedescriptorclasses class ru.dzgeorgy.*.**$$serializer { *; } # <-- change package name to your app's
+-keepclassmembers class ru.dzgeorgy.*.** { # <-- change package name to your app's
+    *** Companion;
+}
+-keepclasseswithmembers class ru.dzgeorgy.*.** { # <-- change package name to your app's
+    kotlinx.serialization.KSerializer serializer(...);
+}
