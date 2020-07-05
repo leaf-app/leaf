@@ -33,6 +33,7 @@ android {
             enableV4Signing = true
         }
     }
+    lintOptions.isAbortOnError = false
     compileSdkVersion(Dependencies.Versions.compileSdk)
     buildToolsVersion = Dependencies.Versions.buildTools
     packagingOptions {
