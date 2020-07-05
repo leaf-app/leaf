@@ -10,6 +10,7 @@ buildscript {
         classpath(Dependencies.Plugins.kotlin)
         classpath(Dependencies.Plugins.grabver)
         classpath(Dependencies.Plugins.firebaseAppDistr)
+        classpath(Dependencies.Plugins.firebaseCrashlytics)
         classpath(Dependencies.Plugins.hilt)
         classpath(Dependencies.Plugins.navigation)
         classpath(Dependencies.Plugins.kotlinSerialization)

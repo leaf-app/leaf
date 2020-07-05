@@ -9,6 +9,7 @@ plugins {
     id("com.google.firebase.appdistribution")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    id("com.google.firebase.crashlytics")
 }
 
 val keysFile = rootProject.file("keys.properties")
@@ -63,6 +64,7 @@ android {
                 serviceCredentialsFile =
                     rootDir.absolutePath + "/ru-dzgeorgy-leaf-efa8ee88d103.json"
             }
+            addManifestPlaceholders(mapOf("crashlyticsCollectionEnabled" to "true"))
         }
         getByName("debug") {
             isMinifyEnabled = false
@@ -73,6 +75,7 @@ android {
             )
             versionNameSuffix = versioning.build.toString()
             signingConfig = signingConfigs.getByName("default")
+            addManifestPlaceholders(mapOf("crashlyticsCollectionEnabled" to "false"))
         }
     }
     compileOptions {
@@ -103,6 +106,7 @@ dependencies {
 
     //Firebase
     implementation(Dependencies.Libs.firebaseAnalytics)
+    implementation(Dependencies.Libs.firebaseConfig)
 
     //Test libraries
     testImplementation(Dependencies.TestLibs.junit)

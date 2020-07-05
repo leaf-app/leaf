@@ -7,6 +7,8 @@ object Dependencies {
         const val grabver = "eu.davidea:grabver:${Versions.grabver}"
         const val firebaseAppDistr =
             "com.google.firebase:firebase-appdistribution-gradle:${Versions.firebaseAppDistr}"
+        const val firebaseCrashlytics =
+            "com.google.firebase:firebase-crashlytics-gradle:${Versions.firebaseCrashlyticsPlugin}"
         const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
         const val navigation =
             "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
@@ -77,6 +79,8 @@ object Dependencies {
         const val firebaseAnalytics = "17.4.3"
         const val firebaseAppDistr = "2.0.0"
         const val firebaseConfig = "19.1.4"
+        const val firebaseCrashlytics = "17.1.0"
+        const val firebaseCrashlyticsPlugin = "2.2.0"
         const val fragment = "1.3.0-alpha06"
         const val gms = "4.3.3"
         const val grabver = "2.0.2"
