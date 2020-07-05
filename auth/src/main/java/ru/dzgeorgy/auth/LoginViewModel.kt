@@ -1,5 +1,6 @@
 package ru.dzgeorgy.auth
 
+import android.annotation.SuppressLint
 import android.content.Context
 import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
@@ -79,6 +80,7 @@ class LoginViewModel @ViewModelInject constructor(
         _moveToMainActivity.value = true
     }
 
+    @SuppressLint("NullSafeMutableLiveData") //Suppress cause of bug with Lint in AS 4.2 Canary 3
     fun onAlertDialogShow() {
         _error.value = null
     }
