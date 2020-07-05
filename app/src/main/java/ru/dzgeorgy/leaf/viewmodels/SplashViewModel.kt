@@ -1,4 +1,4 @@
-package ru.dzgeorgy.leaf
+package ru.dzgeorgy.leaf.viewmodels
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData

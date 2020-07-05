@@ -1,4 +1,4 @@
-package ru.dzgeorgy.leaf
+package ru.dzgeorgy.leaf.ui.activities
 
 import android.content.Intent
 import android.net.Uri
@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.google.android.material.transition.platform.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
+import ru.dzgeorgy.leaf.viewmodels.SplashViewModel
 
 @AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {

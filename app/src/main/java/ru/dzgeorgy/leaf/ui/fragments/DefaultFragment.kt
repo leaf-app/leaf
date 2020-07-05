@@ -1,10 +1,11 @@
-package ru.dzgeorgy.leaf
+package ru.dzgeorgy.leaf.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import ru.dzgeorgy.leaf.R
 
 class DefaultFragment : Fragment() {
 

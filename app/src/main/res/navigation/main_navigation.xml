@@ -6,12 +6,12 @@
 
     <fragment
         android:id="@+id/defaultFragment"
-        android:name="ru.dzgeorgy.leaf.DefaultFragment"
+        android:name="ru.dzgeorgy.leaf.ui.fragments.DefaultFragment"
         android:label="Default" />
 
     <activity
         android:id="@+id/mainActivity"
-        android:name="ru.dzgeorgy.leaf.MainActivity"
+        android:name="ru.dzgeorgy.leaf.ui.activities.MainActivity"
         android:label="MainActivity">
         <deepLink app:uri="app://leaf/main" />
     </activity>

@@ -1,10 +1,11 @@
-package ru.dzgeorgy.leaf
+package ru.dzgeorgy.leaf.ui.activities
 
 import android.os.Bundle
 import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.transition.platform.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
+import ru.dzgeorgy.leaf.R
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
