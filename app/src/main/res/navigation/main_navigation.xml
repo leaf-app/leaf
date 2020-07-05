@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/defaultFragment">
+    app:startDestination="@id/messages_navigation">
 
     <fragment
         android:id="@+id/defaultFragment"
@@ -15,5 +15,7 @@
         android:label="MainActivity">
         <deepLink app:uri="app://leaf/main" />
     </activity>
+
+    <include app:graph="@navigation/messages_navigation" />
 
 </navigation>

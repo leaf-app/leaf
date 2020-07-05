@@ -99,6 +99,7 @@ dependencies {
     implementation(project(":ui"))
     implementation(project(":auth"))
     implementation(project(":core"))
+    implementation(project(":messages"))
 
     //Libraries
     implementation(Dependencies.Libs.hilt)
