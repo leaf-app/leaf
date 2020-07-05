@@ -28,6 +28,8 @@ object Dependencies {
             "com.google.firebase:firebase-analytics-ktx:${Versions.firebaseAnalytics}"
         const val firebaseConfig =
             "com.google.firebase:firebase-config-ktx:${Versions.firebaseConfig}"
+        const val firebaseCrashlytics =
+            "com.google.firebase:firebase-crashlytics:${Versions.firebaseCrashlytics}"
         const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
         const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
         const val hiltAndroid = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltAndroid}"

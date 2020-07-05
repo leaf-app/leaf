@@ -107,7 +107,7 @@ dependencies {
 
     //Firebase
     implementation(Dependencies.Libs.firebaseAnalytics)
-    implementation(Dependencies.Libs.firebaseConfig)
+    implementation(Dependencies.Libs.firebaseCrashlytics)
 
     //Test libraries
     testImplementation(Dependencies.TestLibs.junit)
