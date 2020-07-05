@@ -39,7 +39,6 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun navigate(uri: Uri) {
-        println(uri)
         startActivity(Intent(Intent.ACTION_VIEW, uri))
         finish()
     }
