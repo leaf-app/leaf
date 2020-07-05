@@ -89,6 +89,9 @@ android {
     buildFeatures {
         dataBinding = true
     }
+    packagingOptions {
+        exclude("META-INF/*.kotlin_module")
+    }
 }
 
 dependencies {
