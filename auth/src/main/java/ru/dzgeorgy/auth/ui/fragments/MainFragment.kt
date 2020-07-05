@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 import ru.dzgeorgy.auth.LoginViewModel
@@ -42,6 +43,16 @@ class MainFragment : Fragment() {
         viewModel.apply {
             moveToWeb.observe(viewLifecycleOwner, Observer {
                 if (it) findNavController().navigate(R.id.main_to_web)
+            })
+            error.observe(viewLifecycleOwner, Observer {
+                if (it != null) {
+                    MaterialAlertDialogBuilder(requireContext())
+                        .setTitle(it.first)
+                        .setMessage(getString(it.second, it.third))
+                        .setPositiveButton(R.string.ok) { _, _ -> }
+                        .show()
+                    onAlertDialogShow()
+                }
             })
         }
         return binding.root

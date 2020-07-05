@@ -63,8 +63,11 @@ class LoginViewModel @ViewModelInject constructor(
 
     val userData = ObservableField<AccountUtils.AccountInfo>()
 
-    private val _error = MutableLiveData<Pair<String, String>?>(null)
-    val error: LiveData<Pair<String, String>?>
+    private val _error =
+        MutableLiveData<Triple<@androidx.annotation.StringRes Int, @androidx.annotation.StringRes Int, String?>?>(
+            null
+        )
+    val error: LiveData<Triple<Int, Int, String?>?>
         get() = _error
 
     //UI interaction
@@ -74,6 +77,10 @@ class LoginViewModel @ViewModelInject constructor(
 
     fun onStartClick() {
         _moveToMainActivity.value = true
+    }
+
+    fun onAlertDialogShow() {
+        _error.value = null
     }
 
     //Authentication stuff
@@ -122,7 +129,19 @@ class LoginViewModel @ViewModelInject constructor(
             }.response[0]
         }
 
-    fun onLoginFail(error: String, description: String) {
-
+    fun onLoginFail(description: String) {
+        _error.value = when (description) {
+            "access_denied" -> Triple(
+                R.string.access_denied_err,
+                R.string.access_denied_message,
+                null
+            )
+            "net::ERR_INTERNET_DISCONNECTED" -> Triple(
+                R.string.no_internet_err,
+                R.string.no_internet_message,
+                null
+            )
+            else -> Triple(R.string.unknown_error, R.string.unknown_error_message, null)
+        }
     }
 }

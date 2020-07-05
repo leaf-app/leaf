@@ -49,9 +49,14 @@ class WebFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             viewModel = this@WebFragment.viewModel
         }
-        viewModel.moveToProgress.observe(viewLifecycleOwner, Observer {
-            if (it) findNavController().navigate(R.id.web_to_progress)
-        })
+        viewModel.apply {
+            moveToProgress.observe(viewLifecycleOwner, Observer {
+                if (it) findNavController().navigate(R.id.web_to_progress)
+            })
+            error.observe(viewLifecycleOwner, Observer {
+                if (it != null) findNavController().popBackStack(R.id.mainFragment, false)
+            })
+        }
         return binding.root
     }
 
@@ -82,7 +87,7 @@ class WebFragment : Fragment() {
             setLayerType(View.LAYER_TYPE_SOFTWARE, null)
             webViewClient = WebViewClient(
                 onComplete = { token, id -> viewModel.onLoginSuccess(token, id) },
-                onError = { error, description -> viewModel.onLoginFail(error, description) },
+                onError = { description -> viewModel.onLoginFail(description) },
                 onPageLoad = { showWebView() }
             )
         }

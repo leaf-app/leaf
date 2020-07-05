@@ -10,7 +10,7 @@ import androidx.webkit.WebViewFeature
 
 class WebViewClient(
     private val onComplete: (token: String, id: Int) -> Unit,
-    private val onError: (error: String, description: String) -> Unit,
+    private val onError: (description: String) -> Unit,
     private val onPageLoad: () -> Unit
 ) : WebViewClientCompat() {
 
@@ -35,8 +35,8 @@ class WebViewClient(
                 WebViewFeature.WEB_RESOURCE_ERROR_GET_DESCRIPTION
             )
         ) {
-            onError.invoke(error.errorCode.toString(), error.description.toString())
-        } else onError.invoke("", "")
+            onError.invoke(error.description.toString())
+        } else onError.invoke("")
     }
 
     override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
@@ -47,13 +47,12 @@ class WebViewClient(
             val token = url.getQueryParameter("access_token")
             val id = url.getQueryParameter("user_id")?.toInt()
             val error = url.getQueryParameter("error")
-            val description = url.getQueryParameter("error_description")
 
             return if (id != null && token != null) {
                 onComplete.invoke(token, id)
                 true
-            } else if (error != null && description != null) {
-                onError.invoke(error, description)
+            } else if (error != null) {
+                onError.invoke(error)
                 true
             } else false
 
