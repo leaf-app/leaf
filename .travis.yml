@@ -45,7 +45,7 @@ before_install:
   - chmod +x gradlew
   - "./gradlew dependencies || true"
 after_success:
-  - git log --oneline --decorate > log.txt
+  - git log --oneline --decorate $(git log --grep="Start v[0-9].[0-9|x].[0-9|x]" -1 --pretty=format:"%h")..HEAD --no-merges> log.txt
   - test $TRAVIS_BRANCH = "master" && echo -e "alpha" > group.txt
   - test $TRAVIS_BRANCH = "v0.x.x" && echo -e "dev_alpha" > group.txt
   - "./gradlew appDistributionUploadRelease"
