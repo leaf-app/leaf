@@ -22,12 +22,12 @@ class AccountUtils @Inject constructor(
     @Serializable
     data class AccountInfo(
         val id: Int,
-        val first_name: String,
-        val last_name: String,
+        @SerialName("first_name") val firstName: String,
+        @SerialName("last_name") val lastName: String,
         val status: String,
         @SerialName("photo_max") val photo: String
     ) {
-        fun getName() = "$first_name $last_name"
+        fun getName() = "$firstName $lastName"
     }
 
     private val am = AccountManager.get(context)
@@ -53,7 +53,7 @@ class AccountUtils @Inject constructor(
 
     private fun Account.setData(id: Int, data: AccountInfo) {
         am.apply {
-            setUserData(this@setData, "name", data.first_name + " " + data.last_name)
+            setUserData(this@setData, "name", data.firstName + " " + data.lastName)
             setUserData(this@setData, "id", id.toString())
             setUserData(this@setData, "photo", data.photo)
             setUserData(this@setData, "status", data.status)
