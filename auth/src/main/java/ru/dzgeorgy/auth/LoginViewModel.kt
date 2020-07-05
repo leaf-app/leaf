@@ -125,11 +125,13 @@ class LoginViewModel @ViewModelInject constructor(
                 }
             }
             val uri = "https://api.vk.com/method/users.get?"
-            httpClient.get<ResponseArray<AccountUtils.AccountInfo>>(uri) {
+            val response = httpClient.get<ResponseArray<AccountUtils.AccountInfo>>(uri) {
                 params.forEach { (k, v) ->
                     url.parameters.append(k, v)
                 }
-            }.response[0]
+            }
+            httpClient.close()
+            response.response[0]
         }
 
     fun onLoginFail(description: String) {
