@@ -1,7 +1,6 @@
 package ru.dzgeorgy.auth
 
 import android.annotation.SuppressLint
-import android.content.Context
 import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import androidx.hilt.lifecycle.ViewModelInject
@@ -11,31 +10,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
-import dagger.hilt.android.qualifiers.ApplicationContext
-import io.ktor.client.HttpClient
-import io.ktor.client.engine.okhttp.OkHttp
-import io.ktor.client.features.json.JsonFeature
-import io.ktor.client.features.json.serializer.KotlinxSerializer
-import io.ktor.client.features.logging.LogLevel
-import io.ktor.client.features.logging.Logger
-import io.ktor.client.features.logging.Logging
-import io.ktor.client.features.logging.SIMPLE
-import io.ktor.client.request.get
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import kotlinx.serialization.ContextualSerialization
-import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonConfiguration
+import ru.dzgeorgy.auth.data.network.NetworkService
 import ru.dzgeorgy.core.LiveEvent
 import ru.dzgeorgy.core.account.AccountUtils
+import ru.dzgeorgy.core.network.Network
 
 class LoginViewModel @ViewModelInject constructor(
     private val accountUtils: AccountUtils,
-    @ApplicationContext private val context: Context
-) :
-    ViewModel() {
+    private val network: Network
+) : ViewModel() {
 
     //Navigation Events
     private val _moveToWeb = LiveEvent<Boolean>()
@@ -91,15 +77,7 @@ class LoginViewModel @ViewModelInject constructor(
         _moveToProgress.value = true
 
         viewModelScope.launch {
-            val data = getAccountInfo(
-                mapOf(
-                    "user_ids" to "$id",
-                    "access_token" to token,
-                    "fields" to "photo_max, status",
-                    "v" to ru.dzgeorgy.core.BuildConfig.VK_API_VERSION,
-                    "lang" to context.getString(R.string.locale)
-                )
-            )
+            val data = getAccountInfo(id, token)
             _status.value = R.string.status_create_account
             accountUtils.createAccount(id, token, data)
             userData.set(data)
@@ -107,32 +85,10 @@ class LoginViewModel @ViewModelInject constructor(
         }
     }
 
-    @Serializable
-    data class ResponseArray<T>(
-        val response: List<@ContextualSerialization AccountUtils.AccountInfo>
-    )
-
-    private suspend fun getAccountInfo(params: Map<String, String>) =
-        withContext(Dispatchers.IO) {
-            val httpClient = HttpClient(OkHttp) {
-                install(Logging) {
-                    logger = Logger.SIMPLE
-                    level = LogLevel.ALL
-                }
-                install(JsonFeature) {
-                    serializer =
-                        KotlinxSerializer(Json(JsonConfiguration(ignoreUnknownKeys = true)))
-                }
-            }
-            val uri = "https://api.vk.com/method/users.get?"
-            val response = httpClient.get<ResponseArray<AccountUtils.AccountInfo>>(uri) {
-                params.forEach { (k, v) ->
-                    url.parameters.append(k, v)
-                }
-            }
-            httpClient.close()
-            response.response[0]
-        }
+    private suspend fun getAccountInfo(id: Int, token: String) = withContext(Dispatchers.IO) {
+        val service: NetworkService = network.createService()
+        service.get(id, token).response[0]
+    }
 
     fun onLoginFail(description: String) {
         _error.value = when (description) {

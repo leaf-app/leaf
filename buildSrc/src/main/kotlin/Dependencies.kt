@@ -35,12 +35,6 @@ object Dependencies {
         const val hiltAndroid = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltAndroid}"
         const val kotlinCoroutines =
             "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlinCoroutines}"
-        const val kotlinSerialization =
-            "org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlinSerialization}"
-        const val ktor = "io.ktor:ktor-client-core:${Versions.ktor}"
-        const val ktorLogging = "io.ktor:ktor-client-logging-jvm:${Versions.ktor}"
-        const val ktorOkHttp = "io.ktor:ktor-client-okhttp:${Versions.ktor}"
-        const val ktorSerialization = "io.ktor:ktor-client-serialization-jvm:${Versions.ktor}"
         const val lifecycleCommon =
             "androidx.lifecycle:lifecycle-common-java8:${Versions.lifecycle}"
         const val lifecycleLiveData =
@@ -49,14 +43,19 @@ object Dependencies {
             "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
         const val materialComponents =
             "com.google.android.material:material:${Versions.materialComponents}"
+        const val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
         const val navigation = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
         const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+        const val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
+        const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+        const val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
         const val webkit = "androidx.webkit:webkit:${Versions.webkit}"
     }
 
     object AnnotationProcessors {
         const val hilt = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
         const val hiltAndroid = "androidx.hilt:hilt-compiler:${Versions.hiltAndroid}"
+        const val moshi = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
     }
 
     object TestLibs {
@@ -92,12 +91,13 @@ object Dependencies {
         const val jvm = "1.8"
         const val kotlin = "1.3.72"
         const val kotlinCoroutines = "1.3.7"
-        const val kotlinSerialization = "0.20.0"
-        const val ktor = "1.3.2"
         const val lifecycle = "2.3.0-alpha05"
         const val materialComponents = "1.3.0-alpha01"
         const val minSdk = 23
+        const val moshi = "1.9.3"
         const val navigation = "2.3.0"
+        const val okhttp = "4.7.2"
+        const val retrofit = "2.9.0"
         const val webkit = "1.3.0-rc01"
     }
 

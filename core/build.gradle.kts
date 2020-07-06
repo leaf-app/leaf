@@ -35,15 +35,15 @@ dependencies {
     api(Dependencies.Libs.hilt)
     api(Dependencies.Libs.hiltAndroid)
     api(Dependencies.Libs.kotlinCoroutines)
-    api(Dependencies.Libs.kotlinSerialization)
+    api(Dependencies.Libs.moshi)
     api(Dependencies.Libs.navigation)
     api(Dependencies.Libs.navigationUi)
+    api(Dependencies.Libs.retrofit)
+    implementation(Dependencies.Libs.okhttp)
+    implementation(Dependencies.Libs.retrofitMoshi)
 
     //Annotation processors
     kapt(Dependencies.AnnotationProcessors.hilt)
     kapt(Dependencies.AnnotationProcessors.hiltAndroid)
-}
-
-kapt {
-    correctErrorTypes = true
+    kapt(Dependencies.AnnotationProcessors.moshi)
 }

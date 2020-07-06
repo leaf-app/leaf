@@ -3,11 +3,10 @@ package ru.dzgeorgy.core.account
 import android.accounts.Account
 import android.accounts.AccountManager
 import android.content.Context
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+import kotlinx.coroutines.*
 import javax.inject.Inject
 
 class AccountUtils @Inject constructor(
@@ -19,13 +18,13 @@ class AccountUtils @Inject constructor(
         const val TOKEN_TYPE = "default"
     }
 
-    @Serializable
+    @JsonClass(generateAdapter = true)
     data class AccountInfo(
         val id: Int,
-        @SerialName("first_name") val firstName: String,
-        @SerialName("last_name") val lastName: String,
+        @Json(name = "first_name") val firstName: String,
+        @Json(name = "last_name") val lastName: String,
         val status: String,
-        @SerialName("photo_max") val photo: String
+        @Json(name = "photo_max") val photo: String
     ) {
         fun getName() = "$firstName $lastName"
     }
@@ -68,6 +67,14 @@ class AccountUtils @Inject constructor(
     }
 
     suspend fun getActive(): AccountInfo? = withContext(Dispatchers.IO) {
+        val account = getActiveAccount()
+        account?.let {
+            return@withContext getAccountInfo(it)
+        }
+        return@withContext null
+    }
+
+    private suspend fun getActiveAccount(): Account? = withContext(Dispatchers.IO) {
         val accounts = am.getAccountsByType(ACCOUNT_TYPE)
         var account: Account? = null
         if (accounts.isNotEmpty()) {
@@ -77,9 +84,19 @@ class AccountUtils @Inject constructor(
                     return@forEach
                 }
             }
-            return@withContext getAccountInfo(account ?: accounts[0].also { it.setActive(false) })
+            return@withContext account ?: accounts[0].also { it.setActive(false) }
         }
         return@withContext null
+    }
+
+    suspend fun getToken(): String? = withContext(Dispatchers.IO) {
+        val scope = CoroutineScope(Job() + Dispatchers.IO)
+        scope.launch {
+        }
+        val account = getActiveAccount()
+        account?.let {
+            am.peekAuthToken(account, TOKEN_TYPE)
+        }
     }
 
     private suspend fun getAccountInfo(account: Account): AccountInfo =

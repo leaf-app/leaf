@@ -32,9 +32,6 @@ android {
     buildFeatures {
         dataBinding = true
     }
-    packagingOptions {
-        exclude("META-INF/*.kotlin_module")
-    }
 }
 
 dependencies {
@@ -44,17 +41,10 @@ dependencies {
     //Libraries
     implementation(Dependencies.Libs.hilt)
     implementation(Dependencies.Libs.hiltAndroid)
-    implementation(Dependencies.Libs.ktor)
-    implementation(Dependencies.Libs.ktorLogging)
-    implementation(Dependencies.Libs.ktorOkHttp)
-    implementation(Dependencies.Libs.ktorSerialization)
     implementation(Dependencies.Libs.webkit)
 
     //Annotation processors
     kapt(Dependencies.AnnotationProcessors.hilt)
     kapt(Dependencies.AnnotationProcessors.hiltAndroid)
-}
-
-kapt {
-    correctErrorTypes = true
+    kapt(Dependencies.AnnotationProcessors.moshi)
 }

@@ -119,7 +119,3 @@ dependencies {
     androidTestImplementation(Dependencies.TestLibs.test)
     androidTestImplementation(Dependencies.TestLibs.espresso)
 }
-
-kapt {
-    correctErrorTypes = true
-}
