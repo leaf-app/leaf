@@ -16,6 +16,15 @@
         <deepLink app:uri="app://leaf/main" />
     </activity>
 
+    <dialog
+        android:id="@+id/bottom_menu"
+        android:name="ru.dzgeorgy.leaf.ui.dialogs.BottomMenuDialog"
+        android:label="BottomMenuDialog" />
+
+    <action
+        android:id="@+id/global_bottom_menu"
+        app:destination="@id/bottom_menu" />
+
     <include app:graph="@navigation/messages_navigation" />
 
 </navigation>

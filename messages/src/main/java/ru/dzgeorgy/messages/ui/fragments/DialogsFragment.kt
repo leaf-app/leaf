@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ru.dzgeorgy.messages.databinding.FragmentDialogsBinding
 
-class MainFragment : Fragment() {
+class DialogsFragment : Fragment() {
 
     private lateinit var binding: FragmentDialogsBinding
 
