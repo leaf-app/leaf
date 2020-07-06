@@ -25,6 +25,16 @@
         android:id="@+id/global_bottom_menu"
         app:destination="@id/bottom_menu" />
 
+    <action
+        android:id="@+id/dialogsFragment"
+        app:destination="@id/messages_navigation" />
+
+    <action
+        android:id="@+id/friendsFragment"
+        app:destination="@id/friends_navigation" />
+
     <include app:graph="@navigation/messages_navigation" />
+
+    <include app:graph="@navigation/friends_navigation" />
 
 </navigation>

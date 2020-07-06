@@ -100,6 +100,7 @@ dependencies {
     implementation(project(":auth"))
     implementation(project(":core"))
     implementation(project(":messages"))
+    implementation(project(":friends"))
 
     //Libraries
     implementation(Dependencies.Libs.hilt)
