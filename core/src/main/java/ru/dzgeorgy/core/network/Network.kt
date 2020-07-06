@@ -36,7 +36,6 @@ class Network @Inject constructor(@ApplicationContext context: Context) {
             val newRequest = oldRequest.newBuilder()
                 .url(modifiedUrl)
                 .build()
-            println(modifiedUrl)
             it.proceed(newRequest)
         }
         .build()
