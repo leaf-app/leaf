@@ -2,4 +2,5 @@
 <resources>
     <string name="profile_photo_descr">User\'s photo</string>
     <string name="messages">Messages</string>
+    <string name="friends">Friends</string>
 </resources>
