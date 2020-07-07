@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/friendsFragment"
-        android:name="ru.dzgeorgy.friends.FriendsFragment"
+        android:name="ru.dzgeorgy.friends.ui.fragments.FriendsFragment"
         android:label="FriendsFragment" />
 </navigation>

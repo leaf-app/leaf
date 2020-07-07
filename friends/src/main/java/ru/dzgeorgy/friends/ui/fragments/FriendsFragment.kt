@@ -1,4 +1,4 @@
-package ru.dzgeorgy.friends
+package ru.dzgeorgy.friends.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
+import ru.dzgeorgy.friends.R
 import ru.dzgeorgy.friends.databinding.FragmentFriendsBinding
 import ru.dzgeorgy.ui.LeafFragment
 
