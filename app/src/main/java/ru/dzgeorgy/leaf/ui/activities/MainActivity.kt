@@ -9,6 +9,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import ru.dzgeorgy.leaf.databinding.ActivityMainBinding
 import ru.dzgeorgy.leaf.ui.dialogs.BottomMenuDialog
 import ru.dzgeorgy.leaf.viewmodels.MainViewModel
+import ru.dzgeorgy.ui.LeafFragment
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -29,12 +30,34 @@ class MainActivity : AppCompatActivity() {
         }
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        viewModel.run { }
-        binding.bottomAppbar.setNavigationOnClickListener {
-            val dialog = BottomMenuDialog()
-            dialog.show(supportFragmentManager, "bottom_menu")
+        binding.apply {
+            lifecycleOwner = this@MainActivity
+            viewModel = this@MainActivity.viewModel
+            bottomAppbar.setNavigationOnClickListener {
+                val dialog = BottomMenuDialog()
+                dialog.show(supportFragmentManager, "bottom_menu")
+            }
         }
         setContentView(binding.root)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        //Workaround on loading startDestination in childFragment
+        val fragment =
+            supportFragmentManager.fragments[0].childFragmentManager.fragments[0] as LeafFragment
+        viewModel.initFragmentInteractions(
+            fragment.onFabClick,
+            fragment.fabIcon,
+            fragment.fabAlignment,
+            fragment.menu,
+            fragment.onMenuClick
+        )
+        //Registering callbacks
+        supportFragmentManager.registerFragmentLifecycleCallbacks(
+            viewModel.FragmentCallbacks(),
+            true
+        )
     }
 
 }

@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="ru.dzgeorgy.leaf.viewmodels.MainViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -22,13 +25,18 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_anchor="@id/bottom_appbar" />
+            app:fab_icon="@{viewModel.fabIcon}"
+            app:layout_anchor="@id/bottom_appbar"
+            app:on_fab_click="@{viewModel.onFabClick}" />
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottom_appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom" />
+            android:layout_gravity="bottom"
+            app:bar_menu="@{viewModel.menu}"
+            app:fabAlignmentMode="@{viewModel.fabAlignment}"
+            app:on_menu_click="@{viewModel.menuOnClick}" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
