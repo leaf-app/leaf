@@ -71,7 +71,7 @@ object Dependencies {
         const val androidGradle = "4.2.0-alpha03"
         const val test = "1.3.0-rc01"
         const val appcompat = "1.3.0-alpha01"
-        const val buildTools = "30.0.0"
+        const val buildTools = "30.0.1"
         const val coil = "0.11.0"
         const val compileSdk = 30
         const val constraintLayout = "2.0.0-beta7"
