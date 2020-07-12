@@ -1,5 +1,6 @@
 package ru.dzgeorgy.friends.data
 
+import android.content.SharedPreferences
 import androidx.paging.PagingSource
 import ru.dzgeorgy.core.account.AccountUtils
 import ru.dzgeorgy.core.network.Network
@@ -9,7 +10,8 @@ import javax.inject.Inject
 
 class FriendsPagingSource @Inject constructor(
     private val accountUtils: AccountUtils,
-    private val network: Network
+    private val network: Network,
+    private val preferences: SharedPreferences
 ) : PagingSource<Int, FriendItem>() {
 
     override val keyReuseSupported: Boolean
@@ -17,13 +19,15 @@ class FriendsPagingSource @Inject constructor(
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, FriendItem> {
         return try {
+            //Preference which controls does friends loads by small packs or by big amount (5000 per once)
+            val lazyLoad: Boolean = preferences.getBoolean("friends_paging", true)
             //Friends offset (0 if first loading)
             val offset = params.key ?: 0
             val response = network.createService<FriendsNetwork>().get(
                 accountUtils.getActive()?.id
                     ?: throw IllegalArgumentException("Can't receive user's account"),
                 offset,
-                params.loadSize,
+                if (lazyLoad) params.loadSize else 5000,
                 accountUtils.getToken()
                     ?: throw IllegalArgumentException("Can't receive user's token")
             ).response
