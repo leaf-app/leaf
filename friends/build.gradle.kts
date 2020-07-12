@@ -36,6 +36,7 @@ dependencies {
     //Libraries
     implementation(Dependencies.Libs.hilt)
     implementation(Dependencies.Libs.hiltAndroid)
+    api(Dependencies.Libs.paging)
 
     //Annotation processors
     kapt(Dependencies.AnnotationProcessors.hilt)

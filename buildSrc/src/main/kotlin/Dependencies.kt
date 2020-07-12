@@ -47,6 +47,7 @@ object Dependencies {
         const val navigation = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
         const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
         const val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
+        const val paging = "androidx.paging:paging-runtime:${Versions.paging}"
         const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
         const val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
         const val webkit = "androidx.webkit:webkit:${Versions.webkit}"
@@ -97,6 +98,7 @@ object Dependencies {
         const val moshi = "1.9.3"
         const val navigation = "2.3.0"
         const val okhttp = "4.7.2"
+        const val paging = "3.0.0-alpha02"
         const val retrofit = "2.9.0"
         const val webkit = "1.3.0-rc01"
     }
