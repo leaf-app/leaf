@@ -33,6 +33,7 @@
             android:id="@+id/bottom_appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hideOnScroll="true"
             android:layout_gravity="bottom"
             app:bar_menu="@{viewModel.menu}"
             app:fabAlignmentMode="@{viewModel.fabAlignment}"
