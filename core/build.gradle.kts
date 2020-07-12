@@ -38,6 +38,7 @@ dependencies {
     api(Dependencies.Libs.moshi)
     api(Dependencies.Libs.navigation)
     api(Dependencies.Libs.navigationUi)
+    api(Dependencies.Libs.preferences)
     api(Dependencies.Libs.retrofit)
     implementation(Dependencies.Libs.okhttp)
     implementation(Dependencies.Libs.retrofitMoshi)
