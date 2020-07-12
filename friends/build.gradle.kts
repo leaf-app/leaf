@@ -41,4 +41,5 @@ dependencies {
     //Annotation processors
     kapt(Dependencies.AnnotationProcessors.hilt)
     kapt(Dependencies.AnnotationProcessors.hiltAndroid)
+    kapt(Dependencies.AnnotationProcessors.moshi)
 }
