@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/preferences_navigation"
+    app:startDestination="@id/preferencesFragment">
+
+    <fragment
+        android:id="@+id/preferencesFragment"
+        android:name="ru.dzgeorgy.core.preferences.ui.fragments.PreferencesFragment"
+        android:label="Preferences">
+        <action
+            android:id="@+id/fromMainToDebug"
+            app:destination="@id/debugPreferences" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/debugPreferences"
+        android:name="ru.dzgeorgy.core.preferences.ui.fragments.DebugPreferences"
+        android:label="DebugPreferences" />
+
+</navigation>
