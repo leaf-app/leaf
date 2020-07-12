@@ -33,6 +33,7 @@ class Network @Inject constructor(@ApplicationContext context: Context) {
                 .addQueryParameter("v", BuildConfig.VK_API_VERSION)
                 .addQueryParameter("lang", context.getString(R.string.locale))
                 .build()
+            println(modifiedUrl)
             val newRequest = oldRequest.newBuilder()
                 .url(modifiedUrl)
                 .build()
@@ -45,5 +46,15 @@ class Network @Inject constructor(@ApplicationContext context: Context) {
         val response: List<T>
     )
 
+    @JsonClass(generateAdapter = true)
+    data class ResponseArray<T>(
+        val response: Data<T>
+    )
+
+    @JsonClass(generateAdapter = true)
+    data class Data<T>(
+        val count: Int,
+        val items: List<T>
+    )
 
 }
