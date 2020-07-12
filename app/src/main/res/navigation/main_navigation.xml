@@ -4,11 +4,6 @@
     android:id="@+id/main_navigation"
     app:startDestination="@id/messages_navigation">
 
-    <fragment
-        android:id="@+id/defaultFragment"
-        android:name="ru.dzgeorgy.leaf.ui.fragments.DefaultFragment"
-        android:label="Default" />
-
     <activity
         android:id="@+id/mainActivity"
         android:name="ru.dzgeorgy.leaf.ui.activities.MainActivity"
@@ -33,8 +28,14 @@
         android:id="@+id/friendsFragment"
         app:destination="@id/friends_navigation" />
 
+    <action
+        android:id="@+id/preferencesFragment"
+        app:destination="@id/preferences_navigation" />
+
     <include app:graph="@navigation/messages_navigation" />
 
     <include app:graph="@navigation/friends_navigation" />
+
+    <include app:graph="@navigation/preferences_navigation" />
 
 </navigation>

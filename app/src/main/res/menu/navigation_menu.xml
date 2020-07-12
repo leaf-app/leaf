@@ -10,6 +10,10 @@
             android:id="@+id/dialogsFragment"
             android:icon="@drawable/ic_chat"
             android:title="@string/messages" />
+        <item
+            android:id="@+id/preferencesFragment"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/settings" />
     </group>
 
 </menu>
