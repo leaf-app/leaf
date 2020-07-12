@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="friends_paging_title">Load friends lazily</string>
+    <string name="friends_paging_summary">When enabled friends will load by small packs otherwise 5000 will be loaded at once. (Default: True)</string>
+    <string name="friends_initial_pack_title">Initial pack size</string>
+    <string name="friends_initial_pack_summary">Controls how many friends will be loaded in first pack. (Default: 30)</string>
+    <string name="friends_pack_size_title">Pack size</string>
+    <string name="friends_pack_size_summary">Controls how many friends will be loaded in next packs. (Default: 20)</string>
+    <string name="debug_title">Debug</string>
+    <string name="debug_summary">Preferences in this category should be changed only if you have a point what are you doing as it could break your app</string>
+    <string name="developer_title">Developer</string>
+    <string name="app_version_title">App version</string>
+    <string name="vk_api_version_title">VK API version</string>
+    <string name="build_type_title">Build type</string>
+</resources>
