@@ -6,11 +6,19 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
+import ru.dzgeorgy.friends.FriendsViewModel
 import ru.dzgeorgy.friends.R
 import ru.dzgeorgy.friends.databinding.FragmentFriendsBinding
+import ru.dzgeorgy.friends.ui.utils.FriendsAdapter
+import ru.dzgeorgy.friends.ui.utils.FriendsComparator
+import ru.dzgeorgy.friends.ui.utils.FriendsLoadStateAdapter
 import ru.dzgeorgy.ui.LeafFragment
 
 @AndroidEntryPoint
@@ -37,6 +45,7 @@ class FriendsFragment : LeafFragment() {
         }
 
     private lateinit var binding: FragmentFriendsBinding
+    private val viewModel by viewModels<FriendsViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,7 +53,32 @@ class FriendsFragment : LeafFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentFriendsBinding.inflate(inflater, container, false)
+        binding.apply {
+            lifecycleOwner = viewLifecycleOwner
+        }
         return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val pagingAdapter = FriendsAdapter(FriendsComparator)
+//        pagingAdapter.withLoadStateHeaderAndFooter(
+//            FriendsLoadStateAdapter(),
+//            FriendsLoadStateAdapter()
+//        )
+        binding.rv.adapter = pagingAdapter.withLoadStateHeaderAndFooter(
+            FriendsLoadStateAdapter(),
+            FriendsLoadStateAdapter()
+        )
+        lifecycleScope.launch {
+            viewModel.flow.collectLatest { data ->
+//                pagingAdapter.loadStateFlow.collectLatest { loadStates ->
+//                    println("Refresh: ${loadStates.refresh}")
+//                    binding.progress.isVisible = loadStates.refresh is LoadState.Loading
+//                }
+                pagingAdapter.submitData(data)
+            }
+        }
     }
 
 }
