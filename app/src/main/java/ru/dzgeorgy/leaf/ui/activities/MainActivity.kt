@@ -9,7 +9,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import ru.dzgeorgy.leaf.databinding.ActivityMainBinding
 import ru.dzgeorgy.leaf.ui.dialogs.BottomMenuDialog
 import ru.dzgeorgy.leaf.viewmodels.MainViewModel
-import ru.dzgeorgy.ui.LeafFragment
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -44,15 +43,15 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         //Workaround on loading startDestination in childFragment
-        val fragment =
-            supportFragmentManager.fragments[0].childFragmentManager.fragments[0] as LeafFragment
-        viewModel.initFragmentInteractions(
-            fragment.onFabClick,
-            fragment.fabIcon,
-            fragment.fabAlignment,
-            fragment.menu,
-            fragment.onMenuClick
-        )
+//        val fragment =
+//            supportFragmentManager.fragments[0].childFragmentManager.fragments[0] as LeafFragment
+//        viewModel.initFragmentInteractions(
+//            fragment.onFabClick,
+//            fragment.fabIcon,
+//            fragment.fabAlignment,
+//            fragment.menu,
+//            fragment.onMenuClick
+//        )
         //Registering callbacks
         supportFragmentManager.registerFragmentLifecycleCallbacks(
             viewModel.FragmentCallbacks(),
