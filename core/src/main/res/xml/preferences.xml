@@ -8,19 +8,23 @@
             app:key="pref_group_debug"
             app:summary="@string/debug_summary"
             app:title="@string/debug_title" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:title="Information">
         <Preference
-            app:icon="@drawable/ic_person"
-            app:key="pref_developer"
-            app:summary="dzgeorgy"
-            app:title="@string/developer_title" />
+            app:icon="@drawable/ic_info"
+            app:key="pref_version"
+            app:title="@string/app_version_title" />
         <Preference
             app:icon="@drawable/ic_build"
             app:key="pref_build_type"
             app:title="@string/build_type_title" />
         <Preference
-            app:icon="@drawable/ic_info"
-            app:key="pref_version"
-            app:title="@string/app_version_title" />
+            app:icon="@drawable/ic_person"
+            app:key="pref_developer"
+            app:summary="dzgeorgy"
+            app:title="@string/developer_title" />
         <Preference
             app:icon="@drawable/ic_vk"
             app:key="pref_vk_api"
