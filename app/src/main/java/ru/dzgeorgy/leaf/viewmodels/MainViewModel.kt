@@ -14,7 +14,7 @@ import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.launch
 import ru.dzgeorgy.core.account.AccountUtils
-import ru.dzgeorgy.ui.LeafFragment
+import ru.dzgeorgy.core.utils.ui.ILeafFragment
 
 class MainViewModel @ViewModelInject constructor(
     private val accountUtils: AccountUtils
@@ -68,7 +68,7 @@ class MainViewModel @ViewModelInject constructor(
     inner class FragmentCallbacks : FragmentManager.FragmentLifecycleCallbacks() {
         override fun onFragmentStarted(fm: FragmentManager, f: Fragment) {
             super.onFragmentStarted(fm, f)
-            if (f is LeafFragment) {
+            if (f is ILeafFragment) {
                 _onFabClick.value = f.onFabClick
                 _fabIcon.value = f.fabIcon
                 _fabAlignment.value = f.fabAlignment

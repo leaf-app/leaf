@@ -1,25 +1,24 @@
-package ru.dzgeorgy.ui
+package ru.dzgeorgy.core.utils.ui
 
 import android.view.MenuItem
 import androidx.annotation.DrawableRes
 import androidx.annotation.MenuRes
-import androidx.fragment.app.Fragment
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-abstract class LeafFragment : Fragment() {
+interface ILeafFragment {
 
-    abstract val onFabClick: (fab: FloatingActionButton) -> Unit
+    val onFabClick: (fab: FloatingActionButton) -> Unit
 
-    abstract val fabIcon: Int
+    val fabIcon: Int
         @DrawableRes get
 
-    abstract val fabAlignment: Int
+    val fabAlignment: Int
         @BottomAppBar.FabAlignmentMode get
 
-    abstract val menu: Int
+    val menu: Int?
         @MenuRes get
 
-    abstract val onMenuClick: (menuItem: MenuItem) -> Boolean
+    val onMenuClick: (menuItem: MenuItem) -> Boolean
 
 }

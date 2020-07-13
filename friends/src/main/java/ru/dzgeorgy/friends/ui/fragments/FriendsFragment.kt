@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomappbar.BottomAppBar
@@ -13,16 +14,16 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import ru.dzgeorgy.core.utils.ui.ILeafFragment
 import ru.dzgeorgy.friends.FriendsViewModel
 import ru.dzgeorgy.friends.R
 import ru.dzgeorgy.friends.databinding.FragmentFriendsBinding
 import ru.dzgeorgy.friends.ui.utils.FriendsAdapter
 import ru.dzgeorgy.friends.ui.utils.FriendsComparator
 import ru.dzgeorgy.friends.ui.utils.FriendsLoadStateAdapter
-import ru.dzgeorgy.ui.LeafFragment
 
 @AndroidEntryPoint
-class FriendsFragment : LeafFragment() {
+class FriendsFragment : Fragment(), ILeafFragment {
 
     override val fabIcon: Int
         get() = R.drawable.ic_search
