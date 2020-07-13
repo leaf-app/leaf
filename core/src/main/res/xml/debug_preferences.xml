@@ -2,10 +2,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory
+        app:iconSpaceReserved="false"
         app:key="pref_group_friends"
         app:title="@string/friends">
         <SwitchPreferenceCompat
             app:defaultValue="true"
+            app:iconSpaceReserved="false"
             app:key="friends_paging"
             app:summary="@string/friends_paging_summary"
             app:title="@string/friends_paging_title" />
@@ -13,6 +15,7 @@
             android:max="100"
             app:defaultValue="30"
             app:dependency="friends_paging"
+            app:iconSpaceReserved="false"
             app:key="friends_initial_pack"
             app:min="10"
             app:showSeekBarValue="true"
@@ -22,6 +25,7 @@
             android:dependency="friends_paging"
             android:max="100"
             app:defaultValue="20"
+            app:iconSpaceReserved="false"
             app:key="friends_pack_size"
             app:min="10"
             app:showSeekBarValue="true"
