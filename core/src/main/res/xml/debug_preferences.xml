@@ -31,5 +31,11 @@
             app:showSeekBarValue="true"
             app:summary="@string/friends_pack_size_summary"
             app:title="@string/friends_pack_size_title" />
+        <SwitchPreferenceCompat
+            app:defaultValue="true"
+            app:iconSpaceReserved="false"
+            app:key="friends_cache"
+            app:summary="@string/friends_cache_summary"
+            app:title="@string/friends_cache_title" />
     </PreferenceCategory>
 </PreferenceScreen>
