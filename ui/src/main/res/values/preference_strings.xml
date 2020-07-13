@@ -12,4 +12,7 @@
     <string name="app_version_title">App version</string>
     <string name="vk_api_version_title">VK API version</string>
     <string name="build_type_title">Build type</string>
+    <string name="friends">Friends</string>
+    <string name="friends_cache_title">Cache friends</string>
+    <string name="friends_cache_summary">Should application cache loaded friends data. (Default: True)</string>
 </resources>

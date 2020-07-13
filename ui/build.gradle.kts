@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -31,10 +32,16 @@ dependencies {
     api(Dependencies.Libs.coil)
     api(Dependencies.Libs.constraintLayout)
     api(Dependencies.Libs.fragment)
+    api(Dependencies.Libs.hilt)
+    api(Dependencies.Libs.hiltAndroid)
     api(Dependencies.Libs.lifecycleCommon)
     api(Dependencies.Libs.lifecycleLiveData)
     api(Dependencies.Libs.lifecycleViewModel)
     api(Dependencies.Libs.materialComponents)
     api(Dependencies.Libs.navigation)
     api(Dependencies.Libs.navigationUi)
+
+    //Annotation processors
+    kapt(Dependencies.AnnotationProcessors.hilt)
+    kapt(Dependencies.AnnotationProcessors.hiltAndroid)
 }

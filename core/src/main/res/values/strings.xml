@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="friends">Friends</string>
-    <string name="friends_cache_title">Cache friends</string>
-    <string name="friends_cache_summary">Should application cache loaded friends data. (Default: True)</string>
-</resources>

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/preferencesFragment"
-        android:name="ru.dzgeorgy.core.preferences.ui.fragments.PreferencesFragment"
+        android:name="ru.dzgeorgy.ui.preferences.fragments.PreferencesFragment"
         android:label="Preferences">
         <action
             android:id="@+id/fromMainToDebug"
@@ -15,7 +15,7 @@
 
     <fragment
         android:id="@+id/debugPreferences"
-        android:name="ru.dzgeorgy.core.preferences.ui.fragments.DebugPreferences"
+        android:name="ru.dzgeorgy.ui.preferences.fragments.DebugPreferences"
         android:label="DebugPreferences" />
 
 </navigation>

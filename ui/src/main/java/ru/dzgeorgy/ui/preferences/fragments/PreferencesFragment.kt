@@ -1,4 +1,4 @@
-package ru.dzgeorgy.core.preferences.ui.fragments
+package ru.dzgeorgy.ui.preferences.fragments
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -9,12 +9,12 @@ import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 import ru.dzgeorgy.core.BuildConfig
-import ru.dzgeorgy.core.R
 import ru.dzgeorgy.core.utils.ApplicationInfo
 import ru.dzgeorgy.core.utils.ui.ILeafFragment
+import ru.dzgeorgy.ui.R
 import javax.inject.Inject
 
-@AndroidEntryPoint
+@AndroidEntryPoint()
 class PreferencesFragment : PreferenceFragmentCompat(), ILeafFragment {
 
     @Inject
@@ -31,6 +31,8 @@ class PreferencesFragment : PreferenceFragmentCompat(), ILeafFragment {
         if (this::applicationInfo.isInitialized) {
             versionPref?.summary = applicationInfo.version
             buildTypePref?.summary = applicationInfo.type
+        } else {
+            println("Not initialized")
         }
         vkApiPref?.summary = BuildConfig.VK_API_VERSION
 

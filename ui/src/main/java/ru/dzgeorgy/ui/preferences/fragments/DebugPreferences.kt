@@ -1,8 +1,8 @@
-package ru.dzgeorgy.core.preferences.ui.fragments
+package ru.dzgeorgy.ui.preferences.fragments
 
 import android.os.Bundle
 import androidx.preference.PreferenceFragmentCompat
-import ru.dzgeorgy.core.R
+import ru.dzgeorgy.ui.R
 
 class DebugPreferences : PreferenceFragmentCompat() {
 
