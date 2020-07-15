@@ -13,6 +13,17 @@ android {
     defaultConfig {
         minSdkVersion(Dependencies.Versions.minSdk)
         targetSdkVersion(Dependencies.Versions.compileSdk)
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments(
+                    mapOf(
+                        "room.schemaLocation" to "$projectDir/schemas",
+                        "room.incremental" to "true",
+                        "room.expandProjection" to "true"
+                    )
+                )
+            }
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -37,9 +48,12 @@ dependencies {
     implementation(Dependencies.Libs.hilt)
     implementation(Dependencies.Libs.hiltAndroid)
     api(Dependencies.Libs.paging)
+    api(Dependencies.Libs.room)
+    implementation(Dependencies.Libs.roomKtx)
 
     //Annotation processors
     kapt(Dependencies.AnnotationProcessors.hilt)
     kapt(Dependencies.AnnotationProcessors.hiltAndroid)
     kapt(Dependencies.AnnotationProcessors.moshi)
+    kapt(Dependencies.AnnotationProcessors.room)
 }

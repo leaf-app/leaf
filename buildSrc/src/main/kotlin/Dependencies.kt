@@ -51,6 +51,8 @@ object Dependencies {
         const val preferences = "androidx.preference:preference-ktx:${Versions.preferences}"
         const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
         const val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+        const val room = "androidx.room:room-runtime:${Versions.room}"
+        const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
         const val webkit = "androidx.webkit:webkit:${Versions.webkit}"
     }
 
@@ -58,6 +60,7 @@ object Dependencies {
         const val hilt = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
         const val hiltAndroid = "androidx.hilt:hilt-compiler:${Versions.hiltAndroid}"
         const val moshi = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
+        const val room = "androidx.room:room-compiler:${Versions.room}"
     }
 
     object TestLibs {
@@ -102,6 +105,7 @@ object Dependencies {
         const val paging = "3.0.0-alpha02"
         const val preferences = "1.1.1"
         const val retrofit = "2.9.0"
+        const val room = "2.3.0-alpha01"
         const val webkit = "1.3.0-rc01"
     }
 
