@@ -3,13 +3,13 @@ package ru.dzgeorgy.leaf.utils
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import ru.dzgeorgy.core.utils.ApplicationInfo
 import ru.dzgeorgy.leaf.BuildConfig
 import javax.inject.Singleton
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 object Utils {
 
     @Provides
