@@ -13,7 +13,7 @@ android {
         minSdkVersion(Dependencies.Versions.minSdk)
         targetSdkVersion(Dependencies.Versions.compileSdk)
 
-        buildConfigField("String", "VK_API_VERSION", "5.110")
+        buildConfigField("String", "VK_API_VERSION", "5.120")
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
