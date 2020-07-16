@@ -29,13 +29,13 @@ class SplashActivity : AppCompatActivity() {
         }
         super.onCreate(savedInstanceState)
         viewModel.apply {
-            checkAccount()
             moveToLogin.observe(this@SplashActivity, Observer {
                 if (it) navigate(Uri.parse("app://leaf/login"))
             })
             moveToMain.observe(this@SplashActivity, Observer {
                 if (it) navigate(Uri.parse("app://leaf/main"))
             })
+            checkAccount()
         }
     }
 
