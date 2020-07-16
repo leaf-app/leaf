@@ -65,7 +65,12 @@ android {
                 serviceCredentialsFile =
                     rootDir.absolutePath + "/ru-dzgeorgy-leaf-efa8ee88d103.json"
             }
-            addManifestPlaceholders(mapOf("crashlyticsCollectionEnabled" to "true"))
+            addManifestPlaceholders(
+                mapOf(
+                    "crashlyticsCollectionEnabled" to "true",
+                    "analyticsCollectionEnabled" to "true"
+                )
+            )
         }
         getByName("debug") {
             isMinifyEnabled = true
@@ -76,7 +81,12 @@ android {
             )
             versionNameSuffix = versioning.build.toString()
             signingConfig = signingConfigs.getByName("default")
-            addManifestPlaceholders(mapOf("crashlyticsCollectionEnabled" to "false"))
+            addManifestPlaceholders(
+                mapOf(
+                    "crashlyticsCollectionEnabled" to "false",
+                    "analyticsCollectionEnabled" to "false"
+                )
+            )
         }
     }
     compileOptions {
