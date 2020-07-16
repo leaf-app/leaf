@@ -1,5 +1,6 @@
 package ru.dzgeorgy.auth
 
+import android.accounts.AccountManager
 import android.annotation.SuppressLint
 import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
@@ -15,11 +16,12 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import ru.dzgeorgy.auth.data.network.NetworkService
 import ru.dzgeorgy.core.LiveEvent
-import ru.dzgeorgy.core.account.AccountUtils
+import ru.dzgeorgy.core.account.AccountModule.createAccount
+import ru.dzgeorgy.core.account.User
 import ru.dzgeorgy.core.network.Network
 
 class LoginViewModel @ViewModelInject constructor(
-    private val accountUtils: AccountUtils,
+    private val accountManager: AccountManager,
     private val network: Network
 ) : ViewModel() {
 
@@ -49,7 +51,7 @@ class LoginViewModel @ViewModelInject constructor(
     val directAuthEnabled =
         ObservableBoolean(Firebase.remoteConfig.getBoolean("direct_auth_enabled"))
 
-    val userData = ObservableField<AccountUtils.AccountInfo>()
+    val userData = ObservableField<User>()
 
     private val _error =
         MutableLiveData<Triple<@androidx.annotation.StringRes Int, @androidx.annotation.StringRes Int, String?>?>(
@@ -79,8 +81,8 @@ class LoginViewModel @ViewModelInject constructor(
         viewModelScope.launch {
             val data = getAccountInfo(id, token)
             _status.value = R.string.status_create_account
-            accountUtils.createAccount(id, token, data)
-            userData.set(data)
+            accountManager.createAccount(id, token, data)
+            userData.set(data.toUser())
             _moveToWelcome.value = true
         }
     }

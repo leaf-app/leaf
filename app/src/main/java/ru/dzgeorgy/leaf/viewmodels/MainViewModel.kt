@@ -9,19 +9,17 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import kotlinx.coroutines.launch
-import ru.dzgeorgy.core.account.AccountUtils
+import ru.dzgeorgy.core.account.User
 import ru.dzgeorgy.core.utils.ui.ILeafFragment
 
 class MainViewModel @ViewModelInject constructor(
-    private val accountUtils: AccountUtils
+    user: User
 ) : ViewModel() {
 
-    private val _userData = MutableLiveData<AccountUtils.AccountInfo>()
-    val userData: LiveData<AccountUtils.AccountInfo>
+    private val _userData = MutableLiveData<User>()
+    val userData: LiveData<User>
         get() = _userData
 
     private val _onFabClick = MutableLiveData<((FloatingActionButton) -> Unit)?>()
@@ -46,9 +44,7 @@ class MainViewModel @ViewModelInject constructor(
         get() = _menuOnClick
 
     init {
-        viewModelScope.launch {
-            _userData.value = accountUtils.getActive()!!
-        }
+        _userData.value = user
     }
 
     fun initFragmentInteractions(

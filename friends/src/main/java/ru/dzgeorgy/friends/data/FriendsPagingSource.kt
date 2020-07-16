@@ -2,14 +2,14 @@ package ru.dzgeorgy.friends.data
 
 import android.content.SharedPreferences
 import androidx.paging.PagingSource
-import ru.dzgeorgy.core.account.AccountUtils
+import ru.dzgeorgy.core.account.User
 import ru.dzgeorgy.core.network.Network
 import ru.dzgeorgy.friends.network.FriendItem
 import ru.dzgeorgy.friends.network.FriendsNetwork
 import javax.inject.Inject
 
 class FriendsPagingSource @Inject constructor(
-    private val accountUtils: AccountUtils,
+    private val user: User?,
     private val network: Network,
     private val preferences: SharedPreferences
 ) : PagingSource<Int, FriendItem>() {
@@ -24,12 +24,9 @@ class FriendsPagingSource @Inject constructor(
             //Friends offset (0 if first loading)
             val offset = params.key ?: 0
             val response = network.createService<FriendsNetwork>().get(
-                accountUtils.getActive()?.id
-                    ?: throw IllegalArgumentException("Can't receive user's account"),
+                user!!.id,
                 offset,
-                if (lazyLoad) params.loadSize else 5000,
-                accountUtils.getToken()
-                    ?: throw IllegalArgumentException("Can't receive user's token")
+                if (lazyLoad) params.loadSize else 5000
             ).response
             //Creating offset for next page (null if received less friends than requested, meaning end of the list)
             val nextKey =

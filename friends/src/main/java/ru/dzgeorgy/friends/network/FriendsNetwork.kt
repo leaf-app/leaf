@@ -11,7 +11,6 @@ interface FriendsNetwork {
         @Query("user_id") userId: Int,
         @Query("offset") offset: Int,
         @Query("count") count: Int,
-        @Query("access_token") token: String,
         @Query("fields") fields: String = "photo_max",
         @Query("order") order: String = "name"
     ): Network.ResponseArray<FriendItem>

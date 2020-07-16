@@ -8,9 +8,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import ru.dzgeorgy.core.BuildConfig
 import ru.dzgeorgy.core.R
+import ru.dzgeorgy.core.account.UserWithToken
 import javax.inject.Inject
 
-class Network @Inject constructor(@ApplicationContext context: Context) {
+class Network @Inject internal constructor(
+    @ApplicationContext context: Context,
+    user: UserWithToken?
+) {
 
     companion object {
         const val VK_API_URL = "https://api.vk.com/method/"
@@ -32,10 +36,12 @@ class Network @Inject constructor(@ApplicationContext context: Context) {
                 .newBuilder()
                 .addQueryParameter("v", BuildConfig.VK_API_VERSION)
                 .addQueryParameter("lang", context.getString(R.string.locale))
-                .build()
+            user?.token?.let { token ->
+                modifiedUrl.addQueryParameter("access_token", token)
+            }
             println(modifiedUrl)
             val newRequest = oldRequest.newBuilder()
-                .url(modifiedUrl)
+                .url(modifiedUrl.build())
                 .build()
             it.proceed(newRequest)
         }
