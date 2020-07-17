@@ -1,7 +1,10 @@
 plugins {
+    //Android + Kotlin
     id("com.android.library")
-    id("kotlin-android")
-    id("kotlin-kapt")
+    kotlin("android")
+    kotlin("kapt")
+
+    //Other
     id("dagger.hilt.android.plugin")
 }
 
@@ -21,9 +24,6 @@ android {
     }
     buildFeatures {
         dataBinding = true
-    }
-    packagingOptions {
-        exclude("META-INF/*.kotlin_module")
     }
 }
 

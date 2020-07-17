@@ -2,14 +2,21 @@ import java.io.FileInputStream
 import java.util.*
 
 plugins {
+    //Android + Kotlin
     id("com.android.application")
-    id("kotlin-android")
-    id("com.google.gms.google-services")
+    kotlin("android")
+    kotlin("kapt")
+
+    //Versioning
     id("eu.davidea.grabver")
+
+    //Firebase
+    id("com.google.gms.google-services")
     id("com.google.firebase.appdistribution")
-    id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
     id("com.google.firebase.crashlytics")
+
+    //Other
+    id("dagger.hilt.android.plugin")
 }
 
 val keysFile = rootProject.file("keys.properties")
@@ -98,9 +105,6 @@ android {
     }
     buildFeatures {
         dataBinding = true
-    }
-    packagingOptions {
-        exclude("META-INF/*.kotlin_module")
     }
 }
 
