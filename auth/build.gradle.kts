@@ -5,9 +5,7 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
-    id("androidx.navigation.safeargs.kotlin")
     id("dagger.hilt.android.plugin")
-    id("kotlinx-serialization")
 }
 
 val keysPropsFile = rootProject.file("keys.properties")

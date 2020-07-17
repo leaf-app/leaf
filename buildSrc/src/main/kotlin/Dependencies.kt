@@ -10,10 +10,6 @@ object Dependencies {
         const val firebaseCrashlytics =
             "com.google.firebase:firebase-crashlytics-gradle:${Versions.firebaseCrashlyticsPlugin}"
         const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
-        const val navigation =
-            "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
-        const val kotlinSerialization =
-            "org.jetbrains.kotlin:kotlin-serialization:${Versions.kotlin}"
     }
 
     object Libs {
