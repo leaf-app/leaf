@@ -75,7 +75,7 @@ object Dependencies {
         const val buildTools = "30.0.1"
         const val coil = "0.11.0"
         const val compileSdk = 30
-        const val constraintLayout = "2.0.0-beta7"
+        const val constraintLayout = "2.0.0-beta8"
         const val core = "1.4.0-alpha01"
         const val espresso = "3.2.0"
         const val firebaseAnalytics = "17.4.3"
