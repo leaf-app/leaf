@@ -11,7 +11,7 @@ import ru.dzgeorgy.core.R
 import ru.dzgeorgy.core.account.UserWithToken
 import javax.inject.Inject
 
-class Network @Inject internal constructor(
+class NetworkModule @Inject internal constructor(
     @ApplicationContext context: Context,
     user: UserWithToken?
 ) {

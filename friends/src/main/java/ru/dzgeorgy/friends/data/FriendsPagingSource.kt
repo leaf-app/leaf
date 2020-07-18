@@ -3,14 +3,14 @@ package ru.dzgeorgy.friends.data
 import android.content.SharedPreferences
 import androidx.paging.PagingSource
 import ru.dzgeorgy.core.account.User
-import ru.dzgeorgy.core.network.Network
+import ru.dzgeorgy.core.network.NetworkModule
 import ru.dzgeorgy.friends.network.FriendItem
 import ru.dzgeorgy.friends.network.FriendsNetwork
 import javax.inject.Inject
 
 class FriendsPagingSource @Inject constructor(
     private val user: User?,
-    private val network: Network,
+    private val network: NetworkModule,
     private val preferences: SharedPreferences
 ) : PagingSource<Int, FriendItem>() {
 

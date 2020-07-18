@@ -18,11 +18,11 @@ import ru.dzgeorgy.auth.data.network.NetworkService
 import ru.dzgeorgy.core.LiveEvent
 import ru.dzgeorgy.core.account.AccountModule.createAccount
 import ru.dzgeorgy.core.account.User
-import ru.dzgeorgy.core.network.Network
+import ru.dzgeorgy.core.network.NetworkModule
 
 class LoginViewModel @ViewModelInject constructor(
     private val accountManager: AccountManager,
-    private val network: Network
+    private val network: NetworkModule
 ) : ViewModel() {
 
     //Navigation Events
