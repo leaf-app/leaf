@@ -33,7 +33,6 @@ dependencies {
 
     //Libraries
     implementation(Dependencies.Libs.hilt)
-    implementation(Dependencies.Libs.hiltAndroid)
 
     //Annotation processors
     kapt(Dependencies.AnnotationProcessors.hilt)
