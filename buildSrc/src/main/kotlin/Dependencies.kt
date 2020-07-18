@@ -86,7 +86,7 @@ object Dependencies {
         const val fragment = "1.3.0-alpha06"
         const val gms = "4.3.3"
         const val grabver = "2.0.2"
-        const val hilt = "2.28.2-alpha"
+        const val hilt = "2.28.3-alpha"
         const val hiltAndroid = "1.0.0-alpha01"
         const val junit = "4.13"
         const val jvm = "1.8"
