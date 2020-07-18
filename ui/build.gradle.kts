@@ -30,12 +30,11 @@ dependencies {
     api(project(":core"))
 
     //Libraries
-    api(Dependencies.Libs.activity)
     api(Dependencies.Libs.appcompat)
     api(Dependencies.Libs.coil)
     api(Dependencies.Libs.constraintLayout)
     api(Dependencies.Libs.fragment)
-    api(Dependencies.Libs.hilt)
+    implementation(Dependencies.Libs.hilt)
     api(Dependencies.Libs.hiltAndroid)
     api(Dependencies.Libs.lifecycleCommon)
     api(Dependencies.Libs.lifecycleLiveData)

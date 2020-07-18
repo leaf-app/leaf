@@ -10,12 +10,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 import ru.dzgeorgy.core.BuildConfig
 import ru.dzgeorgy.core.utils.ApplicationInfo
-import ru.dzgeorgy.core.utils.ui.ILeafFragment
+import ru.dzgeorgy.ui.ILeafFragment
 import ru.dzgeorgy.ui.R
 import javax.inject.Inject
 
 @AndroidEntryPoint()
-class PreferencesFragment : PreferenceFragmentCompat(), ILeafFragment {
+class PreferencesFragment : PreferenceFragmentCompat(),
+    ILeafFragment {
 
     @Inject
     lateinit var applicationInfo: ApplicationInfo

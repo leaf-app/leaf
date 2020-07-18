@@ -44,7 +44,6 @@ dependencies {
 
     //Libraries
     implementation(Dependencies.Libs.hilt)
-    implementation(Dependencies.Libs.hiltAndroid)
     api(Dependencies.Libs.paging)
     api(Dependencies.Libs.room)
     implementation(Dependencies.Libs.roomKtx)

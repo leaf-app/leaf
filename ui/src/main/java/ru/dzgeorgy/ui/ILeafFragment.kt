@@ -1,4 +1,4 @@
-package ru.dzgeorgy.core.utils.ui
+package ru.dzgeorgy.ui
 
 import android.view.MenuItem
 import androidx.annotation.DrawableRes

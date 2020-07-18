@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import ru.dzgeorgy.core.utils.ui.ILeafFragment
 import ru.dzgeorgy.messages.R
 import ru.dzgeorgy.messages.databinding.FragmentDialogsBinding
+import ru.dzgeorgy.ui.ILeafFragment
 
 class DialogsFragment : Fragment(), ILeafFragment {
 

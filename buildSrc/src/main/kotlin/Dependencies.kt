@@ -29,8 +29,6 @@ object Dependencies {
         const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
         const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
         const val hiltAndroid = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltAndroid}"
-        const val kotlinCoroutines =
-            "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlinCoroutines}"
         const val lifecycleCommon =
             "androidx.lifecycle:lifecycle-common-java8:${Versions.lifecycle}"
         const val lifecycleLiveData =
@@ -91,7 +89,6 @@ object Dependencies {
         const val junit = "4.13"
         const val jvm = "1.8"
         const val kotlin = "1.3.72"
-        const val kotlinCoroutines = "1.3.7"
         const val lifecycle = "2.3.0-alpha05"
         const val materialComponents = "1.3.0-alpha01"
         const val minSdk = 23

@@ -117,6 +117,7 @@ dependencies {
     implementation(project(":friends"))
 
     //Libraries
+    implementation(Dependencies.Libs.activity)
     implementation(Dependencies.Libs.hilt)
     implementation(Dependencies.Libs.hiltAndroid)
 

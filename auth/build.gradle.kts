@@ -40,8 +40,8 @@ dependencies {
     implementation(project(":ui"))
 
     //Libraries
+    implementation(Dependencies.Libs.activity)
     implementation(Dependencies.Libs.hilt)
-    implementation(Dependencies.Libs.hiltAndroid)
     implementation(Dependencies.Libs.webkit)
 
     //Annotation processors

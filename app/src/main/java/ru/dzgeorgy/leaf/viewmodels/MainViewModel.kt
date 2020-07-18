@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModel
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ru.dzgeorgy.core.account.User
-import ru.dzgeorgy.core.utils.ui.ILeafFragment
+import ru.dzgeorgy.ui.ILeafFragment
 
 class MainViewModel @ViewModelInject constructor(
     user: User

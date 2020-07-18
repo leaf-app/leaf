@@ -14,13 +14,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import ru.dzgeorgy.core.utils.ui.ILeafFragment
 import ru.dzgeorgy.friends.FriendsViewModel
 import ru.dzgeorgy.friends.R
 import ru.dzgeorgy.friends.databinding.FragmentFriendsBinding
 import ru.dzgeorgy.friends.ui.utils.FriendsAdapter
 import ru.dzgeorgy.friends.ui.utils.FriendsComparator
 import ru.dzgeorgy.friends.ui.utils.FriendsLoadStateAdapter
+import ru.dzgeorgy.ui.ILeafFragment
 
 @AndroidEntryPoint
 class FriendsFragment : Fragment(), ILeafFragment {
